@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zyed A | AI & Software Engineer</title>
+  <meta name="description"
+    content="Portfolio of Mohammed Zyed Aragiddi, an AI & Software Engineer specializing in Machine Learning, Computer Vision, Backend Development and Data Science.">
+  <meta name="keywords"
+    content="Zyed A, Zyed Aragiddi, AI Engineer, Software Engineer, Data Scientist, Machine Learning, Python, Full Stack">
+  <meta name="author" content="Mohammed Zyed Aragiddi">
+  <meta name="theme-color" content="#06070a">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zyed-a-portfolio.com/">
+  <meta property="og:title" content="Zyed A | AI & Software Engineer">
+  <meta property="og:description" content="Portfolio of Mohammed Zyed Aragiddi, an AI & Software Engineer.">
+  <meta property="og:image" content="https://zyed-a-portfolio.com/assets/og-image.jpg">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://zyed-a-portfolio.com/">
+  <meta property="twitter:title" content="Zyed A | AI & Software Engineer">
+  <meta property="twitter:description" content="Portfolio of Mohammed Zyed Aragiddi, an AI & Software Engineer.">
+  <meta property="twitter:image" content="https://zyed-a-portfolio.com/assets/og-image.jpg">
+  <!-- Canonical and Favicon placeholders -->
+  <link rel="canonical" href="https://zyed-a-portfolio.com/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Libraries (Anime.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body>
+  <!-- AI Minimalist Background -->
+  <div class="ai-background-container">
+    <div class="glowing-grid"></div>
+    <div class="particles-layer" id="particles-layer"></div>
+  </div>
+
+  <!-- Custom Cursor Glow -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="logo">
+        <span class="logo-symbol">[</span>Mohammed Zyed Aragiddi<span class="logo-symbol">]</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link active" id="nav-about">About</a></li>
+        <li><a href="#specialties" class="nav-link" id="nav-specialties">Experience</a></li>
+        <li><a href="#dashboard" class="nav-link" id="nav-dashboard">Projects</a></li>
+        <li><a href="#certificates" class="nav-link" id="nav-certificates">Certifications</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+      </ul>
+      <div class="nav-theme-toggle">
+        <input id="check" type="checkbox" />
+        <label class="switch" for="check">
+          <svg viewBox="0 0 212.4992 84.4688" overflow="visible">
+            <path
+              pathLength="360"
+              fill="none"
+              stroke="currentColor"
+              d="M 42.2496 0 A 42.24 42.24 90 0 0 0 42.2496 A 42.24 42.24 90 0 0 42.2496 84.4688 A 42.24 42.24 90 0 0 84.4992 42.2496 A 42.24 42.24 90 0 0 42.2496 0 A 42.24 42.24 90 0 0 0 42.2496 A 42.24 42.24 90 0 0 42.2496 84.4688 L 170.2496 84.4688 A 42.24 42.24 90 0 0 212.4992 42.2496 A 42.24 42.24 90 0 0 170.2496 0 A 42.24 42.24 90 0 0 128 42.2496 A 42.24 42.24 90 0 0 170.2496 84.4688 A 42.24 42.24 90 0 0 212.4992 42.2496 A 42.24 42.24 90 0 0 170.2496 0 L 42.2496 0"
+            ></path>
+          </svg>
+        </label>
+      </div>
+      <div class="nav-socials">
+        <!-- Mobile Socials (hidden on desktop via CSS) -->
+        <div class="mobile-socials">
+          <a href="https://www.instagram.com/zyed_106/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/zyed-110" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/zyed-a-18786930a/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="Resume/ZyedAResume.pdf" target="_blank" aria-label="Resume" class="resume-icon-btn"><i class="fa-solid fa-file-pdf"></i></a>
+        </div>
+        
+        <!-- Desktop Socials (hidden on mobile via CSS) -->
+        <div class="desktop-socials" style="transform: scale(0.6); transform-origin: right center; margin-right: -10px; margin-top: -15px;">
+          <div class="main">
+            <div class="up">
+              <button class="card1" onclick="window.open('https://www.instagram.com/zyed_106/', '_blank')">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="30px" height="30px" fill-rule="nonzero" class="instagram"><g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)"><path d="M11.46875,5c-3.55078,0 -6.46875,2.91406 -6.46875,6.46875v9.0625c0,3.55078 2.91406,6.46875 6.46875,6.46875h9.0625c3.55078,0 6.46875,-2.91406 6.46875,-6.46875v-9.0625c0,-3.55078 -2.91406,-6.46875 -6.46875,-6.46875zM11.46875,7h9.0625c2.47266,0 4.46875,1.99609 4.46875,4.46875v9.0625c0,2.47266 -1.99609,4.46875 -4.46875,4.46875h-9.0625c-2.47266,0 -4.46875,-1.99609 -4.46875,-4.46875v-9.0625c0,-2.47266 1.99609,-4.46875 4.46875,-4.46875zM21.90625,9.1875c-0.50391,0 -0.90625,0.40234 -0.90625,0.90625c0,0.50391 0.40234,0.90625 0.90625,0.90625c0.50391,0 0.90625,-0.40234 0.90625,-0.90625c0,-0.50391 -0.40234,-0.90625 -0.90625,-0.90625zM16,10c-3.30078,0 -6,2.69922 -6,6c0,3.30078 2.69922,6 6,6c3.30078,0 6,-2.69922 6,-6c0,-3.30078 -2.69922,-6 -6,-6zM16,12c2.22266,0 4,1.77734 4,4c0,2.22266 -1.77734,4 -4,4c-2.22266,0 -4,-1.77734 -4,-4c0,-2.22266 1.77734,-4 4,-4z"></path></g></g></svg>
+                <span class="social-text">Instagram</span>
+              </button>
+              <button class="card2" onclick="window.open('https://www.linkedin.com/in/zyed-a-18786930a/', '_blank')">
+                <i class="fa-brands fa-linkedin twitter" style="font-size: 30px; color: #03A9F4;"></i>
+                <span class="social-text">LinkedIn</span>
+              </button>
+            </div>
+            <div class="down">
+              <button class="card3" onclick="window.open('https://github.com/zyed-110', '_blank')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px" class="github"><path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path></svg>
+                <span class="social-text">GitHub</span>
+              </button>
+              <button class="card4" onclick="window.open('mailto:zyed7094@gmail.com', '_blank')">
+                <i class="fa-solid fa-envelope discord" style="font-size: 30px; color: #8c9eff;"></i>
+                <span class="social-text">Email</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-toggle" id="mobile-menu-btn">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container">
+
+        <!-- Left: Headline and Description -->
+        <div class="hero-text-side">
+          <div class="tech-badge"><span class="pulse-indicator"></span> ZYED_A // DATA_SCIENCE_PORTFOLIO</div>
+          <div class="hero-content-flex">
+            <div class="hero-text-content">
+              <h1 class="hero-title">
+                AI & Software Engineer
+              </h1>
+              <h2 class="hero-subtitle">Building intelligent applications with Machine Learning, Computer Vision, Backend
+                Development and Data Science.</h2>
+              <p class="hero-desc">
+                Hi, I'm Mohammed Zyed Aragiddi, a Computer Science (Data Science) graduate from Bengaluru passionate about
+                building AI-powered software, scalable backend systems, and intelligent automation. I enjoy creating
+                real-world solutions using Machine Learning, Computer Vision, and Full Stack Development.
+              </p>
+            </div>
+            
+            <div class="hero-pyramid-container">
+              <div class="pyramid-loader">
+                <div class="wrapper">
+                  <span class="side side1"></span>
+                  <span class="side side2"></span>
+                  <span class="side side3"></span>
+                  <span class="side side4"></span>
+                  <span class="shadow"></span>
+                </div>  
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-card">
+              <span class="stat-num">15+</span>
+              <span class="stat-lbl">Projects</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-num">2</span>
+              <span class="stat-lbl">Internships</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-num">5+</span>
+              <span class="stat-lbl">Certs</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-num">2026</span>
+              <span class="stat-lbl">Graduate</span>
+            </div>
+          </div>
+
+          <div class="hero-action-buttons">
+            <a href="#dashboard" class="btn-premium-primary">View Projects</a>
+            <a href="assets/resume.pdf" target="_blank" class="btn-premium-secondary">Download Resume</a>
+            <a href="#contact" class="btn-premium-outline">Contact Me</a>
+          </div>
+
+          <div class="hero-tech-badges">
+            <span class="tech-badge-item"><i class="fa-brands fa-python"></i> Python</span>
+            <span class="tech-badge-item"><i class="fa-brands fa-java"></i> Java</span>
+            <span class="tech-badge-item"><i class="fa-solid fa-server"></i> FastAPI</span>
+            <span class="tech-badge-item"><i class="fa-brands fa-react"></i> React</span>
+            <span class="tech-badge-item"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TF"
+                class="inline-icon"> TensorFlow</span>
+            <span class="tech-badge-item"><i class="fa-solid fa-eye"></i> OpenCV</span>
+            <span class="tech-badge-item"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="tech-badge-item"><i class="fa-solid fa-chart-bar"></i> Power BI</span>
+            <span class="tech-badge-item"><i class="fa-brands fa-github"></i> GitHub</span>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="section-container border-top">
+        <div class="section-header-tag">[ SECTION 01 // PROFILE ]</div>
+        <div class="about-grid">
+
+          <div class="about-bio-panel scroll-reveal">
+            <div class="profile-image-container">
+              <!-- Placeholder for professional image -->
+              <img src="Img.png" alt="Mohammed Zyed Aragiddi" class="profile-image"
+                onerror="this.src='https://placehold.co/400x400/13141c/a855f7?text=ZA';">
+            </div>
+            <div class="bio-content">
+              <h2 class="title-tech">BIOGRAPHY</h2>
+              <p class="bio-text">
+                I am an AI and Software Engineer focused on architecting intelligent systems and scalable backend
+                solutions. With a strong foundation in Data Science, I specialize in developing end-to-end
+                applications—from training predictive models and computer vision pipelines to building robust APIs and
+                engaging user interfaces.
+              </p>
+              <div class="academic-stats">
+                <div class="stat-box premium-glass">
+                  <div class="stat-num">7.3</div>
+                  <div class="stat-lbl">BE CGPA</div>
+                </div>
+                <div class="stat-box premium-glass">
+                  <div class="stat-num">B.E.</div>
+                  <div class="stat-lbl">CSE (Data Science)</div>
+                </div>
+                <div class="stat-box premium-glass">
+                  <div class="stat-num">KNS IT</div>
+                  <div class="stat-lbl">College of Eng.</div>
+                </div>
+              </div>
+              <div style="margin-top: 30px;">
+                <a href="Resume/ZyedAResume.pdf" target="_blank" class="btn-premium-secondary" style="font-size: 0.9rem; padding: 10px 20px;">
+                  <i class="fa-solid fa-file-pdf"></i> View Resume
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-timeline-panel scroll-reveal">
+            <h2 class="title-tech">EXPERIENCE</h2>
+            <div class="tech-timeline">
+              <div class="timeline-node premium-timeline-node">
+                <div class="node-meta">[ FEB 2026 - PRESENT ]</div>
+                <div class="node-title">Software Engineering Intern</div>
+                <div class="node-subtitle">Contriver</div>
+                <p class="node-body">Architecting backend data processing pipelines and implementing industry-standard
+                  software engineering practices. Collaborating with cross-functional teams to deliver scalable
+                  solutions.</p>
+                <div class="node-tech-stack"><span>Python</span><span>SQL</span><span>Backend Dev</span></div>
+              </div>
+              <div class="timeline-node premium-timeline-node">
+                <div class="node-meta">[ MAY 2025 - JUL 2025 ]</div>
+                <div class="node-title">Data Scientist Intern</div>
+                <div class="node-subtitle">Skillfied Mentor Pvt. Ltd.</div>
+                <p class="node-body">Engineered robust data cleaning pipelines and database structures. Spearheaded
+                  exploratory data analysis (EDA) and feature engineering to prepare datasets for high-performance
+                  machine learning models.</p>
+                <div class="node-tech-stack"><span>Machine Learning</span><span>Pandas</span><span>Scikit-Learn</span>
+                </div>
+              </div>
+              <div class="timeline-node premium-timeline-node">
+                <div class="node-meta">[ 2022 - 2026 ]</div>
+                <div class="node-title">B.E. Computer Science & Data Science</div>
+                <div class="node-subtitle">KNS Institute of Technology</div>
+                <p class="node-body">Focusing on Artificial Intelligence, Database Management Systems, and Software
+                  Engineering.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Specialties Grid Section -->
+    <section id="specialties" class="specialties-section">
+      <div class="section-container border-top">
+        <div class="section-header-tag">[ SECTION 02 // TECHNICAL SKILLS ]</div>
+        <h2 class="title-tech-center">TECHNICAL EXPERTISE </h2>
+
+        <div class="specialties-grid">
+
+          <div class="spec-card scroll-reveal premium-glass">
+            <div class="spec-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>Machine Learning & AI</h3>
+            <p>Building predictive models, computer vision pipelines, and executing robust exploratory data analysis.
+            </p>
+            <div class="spec-tags">
+              <span>Python</span><span>TensorFlow</span><span>PyTorch</span><span>Scikit-Learn</span><span>YOLOv8</span><span>OpenCV</span>
+            </div>
+          </div>
+
+          <div class="spec-card scroll-reveal premium-glass">
+            <div class="spec-icon"><i class="fa-solid fa-server"></i></div>
+            <h3>Backend Engineering</h3>
+            <p>Architecting scalable APIs, secure services, and clean object-oriented systems.</p>
+            <div class="spec-tags">
+              <span>Java</span><span>C++</span><span>FastAPI</span><span>Node.js</span><span>OOP</span><span>REST
+                APIs</span>
+            </div>
+          </div>
+
+          <div class="spec-card scroll-reveal premium-glass">
+            <div class="spec-icon"><i class="fa-solid fa-database"></i></div>
+            <h3>Data & Analytics</h3>
+            <p>Designing relational databases, optimizing complex queries, and building interactive dashboards.</p>
+            <div class="spec-tags">
+              <span>SQL</span><span>MySQL</span><span>PostgreSQL</span><span>Pandas</span><span>Power BI</span>
+            </div>
+          </div>
+
+          <div class="spec-card scroll-reveal premium-glass">
+            <div class="spec-icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Frontend Development</h3>
+            <p>Developing responsive, dynamic, and accessible web interfaces with modern frameworks.</p>
+            <div class="spec-tags">
+              <span>JavaScript</span><span>TypeScript</span><span>React</span><span>HTML5/CSS3</span><span>Tailwind</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Dashboard OS Section (Vibe-Coding Projects terminal) -->
+    <section id="dashboard" class="dashboard-section">
+      <div class="section-container border-top">
+        <div class="section-header-tag">[ SECTION 03 // MOJOR PROJECTS ]</div>
+
+        <div class="console-box">
+          <div class="console-sidebar">
+            <div class="sidebar-title">SYSTEM_PANEL</div>
+            <ul class="console-tabs">
+              <li class="console-tab active" onclick="switchConsoleProject(0)" id="tab-0">
+                <span class="tab-index">01</span> AI Navigation
+              </li>
+              <li class="console-tab" onclick="switchConsoleProject(1)" id="tab-1">
+                <span class="tab-index">02</span> Image Recognition
+              </li>
+              <li class="console-tab" onclick="switchConsoleProject(2)" id="tab-2">
+                <span class="tab-index">03</span> Alice Voice Bot
+              </li>
+              <li class="console-tab" onclick="switchConsoleProject(3)" id="tab-3">
+                <span class="tab-index">04</span> Library System
+              </li>
+            </ul>
+          </div>
+
+          <div class="console-workspace" id="console-workspace">
+            <!-- Project content gets rendered dynamically via JavaScript with Anime.js transitions -->
+            <div class="project-details" id="active-project-details">
+              <!-- Placeholder that is updated immediately on script load -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section">
+      <div class="section-container border-top">
+        <div class="section-header-tag">[ SECTION 04 // VERIFICATIONS ]</div>
+        <h2 class="title-tech-center">LICENSES AND CERTIFICATIONS</h2>
+
+        <div class="certificates-grid">
+
+          <!-- Cert 1 -->
+          <div class="cert-card-schematic scroll-reveal premium-glass"
+            onclick="openCert('Certificates/Contriver_Internship.pdf')">
+            <div class="cert-meta">[ ID: CON-BE ]</div>
+            <h3>Contriver Internship</h3>
+            <p>Programming and Development Intern Certificate</p>
+            <div class="cert-actions">
+              <span class="cert-link">PREVIEW <i class="fa-solid fa-eye"></i></span>
+              <span class="cert-download"
+                onclick="event.stopPropagation(); downloadCert('Certificates/Contriver_Internship.pdf', 'Contriver_Internship.pdf')">DOWNLOAD
+                <i class="fa-solid fa-download"></i></span>
+            </div>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card-schematic scroll-reveal premium-glass"
+            onclick="openCert('Certificates/SkillFied_Internship.pdf')">
+            <div class="cert-meta">[ ID: SKI-DS ]</div>
+            <h3>Skillfied Internship</h3>
+            <p>Data Scientist Intern Certification</p>
+            <div class="cert-actions">
+              <span class="cert-link">PREVIEW <i class="fa-solid fa-eye"></i></span>
+              <span class="cert-download"
+                onclick="event.stopPropagation(); downloadCert('Certificates/SkillFied_Internship.pdf', 'SkillFied_Internship.pdf')">DOWNLOAD
+                <i class="fa-solid fa-download"></i></span>
+            </div>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card-schematic scroll-reveal premium-glass"
+            onclick="openCert('Certificates/Data Science 101 IBM.pdf')">
+            <div class="cert-meta">[ ID: IBM-101 ]</div>
+            <h3>Data Science 101</h3>
+            <p>IBM / United Latino Students Association</p>
+            <div class="cert-actions">
+              <span class="cert-link">PREVIEW <i class="fa-solid fa-eye"></i></span>
+              <span class="cert-download"
+                onclick="event.stopPropagation(); downloadCert('Certificates/Data Science 101 IBM.pdf', 'Data_Science_101_IBM.pdf')">DOWNLOAD
+                <i class="fa-solid fa-download"></i></span>
+            </div>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card-schematic scroll-reveal premium-glass"
+            onclick="openCert('Certificates/Deloitte_Internship.pdf')">
+            <div class="cert-meta">[ ID: DEL-EXP ]</div>
+            <h3>Deloitte Experience</h3>
+            <p>Technology & Consulting Internship Program</p>
+            <div class="cert-actions">
+              <span class="cert-link">PREVIEW <i class="fa-solid fa-eye"></i></span>
+              <span class="cert-download"
+                onclick="event.stopPropagation(); downloadCert('Certificates/Deloitte_Internship.pdf', 'Deloitte_Internship.pdf')">DOWNLOAD
+                <i class="fa-solid fa-download"></i></span>
+            </div>
+          </div>
+
+          <div id="hidden-certs" class="hidden-certs-container">
+            <!-- Cert 5 -->
+            <div class="cert-card-schematic premium-glass" onclick="openCert('Certificates/HP AI for beginners.pdf')">
+              <div class="cert-meta">[ ID: HP-AI ]</div>
+              <h3>AI for Beginners</h3>
+              <p>HP Academy / Technical Exploration</p>
+              <div class="cert-actions">
+                <span class="cert-link">PREVIEW <i class="fa-solid fa-eye"></i></span>
+                <span class="cert-download"
+                  onclick="event.stopPropagation(); downloadCert('Certificates/HP AI for beginners.pdf', 'HP_AI_for_beginners.pdf')">DOWNLOAD
+                  <i class="fa-solid fa-download"></i></span>
+              </div>
+            </div>
+
+            <!-- Cert 6 -->
+            <div class="cert-card-schematic premium-glass" onclick="openCert('Certificates/EBSCO.pdf')">
+              <div class="cert-meta">[ ID: EBS-DB ]</div>
+              <h3>EBSCO Certification</h3>
+              <p>Academic Search and Database Engineering</p>
+              <div class="cert-actions">
+                <span class="cert-link">PREVIEW <i class="fa-solid fa-eye"></i></span>
+                <span class="cert-download"
+                  onclick="event.stopPropagation(); downloadCert('Certificates/EBSCO.pdf', 'EBSCO.pdf')">DOWNLOAD <i
+                    class="fa-solid fa-download"></i></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="view-more-container">
+          <button id="view-more-certs-btn" class="btn-premium-outline">View More Certifications <i
+              class="fa-solid fa-chevron-down"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect / Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="section-container border-top">
+        <div class="section-header-tag">[ SECTION 05 // SYSTEM_COMM ]</div>
+
+        <div class="contact-grid">
+
+          <div class="contact-specs scroll-reveal">
+            <h2 class="title-tech">COMM_CHANNELS_</h2>
+            <div class="specs-list">
+              <div class="spec-row">
+                <span class="spec-label">EMAIL_ADDRESS:</span>
+                <span class="spec-value"><a href="mailto:zyed7094@gmail.com">zyed7094@gmail.com</a></span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">PHONE_LINE:</span>
+                <span class="spec-value"><a href="tel:+917019716064">+91-7019716064</a></span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">LOCATION:</span>
+                <span class="spec-value">Bengaluru, KA, India</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">GITHUB:</span>
+                <span class="spec-value"><a href="https://github.com/zyed-110"
+                    target="_blank">github.com/zyed-110</a></span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">LINKEDIN:</span>
+                <span class="spec-value"><a href="https://www.linkedin.com/in/zyed-a-18786930a/"
+                    target="_blank">linkedin.com/in/zyed-a-18786930a</a></span>
+              </div>
+            </div>
+
+            <div class="console-branding">
+              <div class="barcode"></div>
+              <div class="brand-text">ZYED PROTOCOL SYSTEM V.2026 // ALL RIGHTS SECURED.</div>
+            </div>
+          </div>
+
+          <div class="contact-terminal scroll-reveal premium-glass">
+            <h2 class="title-tech">CONTACT</h2>
+            <!-- Note: Replace YOUR_EMAIL@example.com with actual email or token for FormSubmit -->
+            <form class="terminal-form" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
+              <!-- Honeypot -->
+              <input type="text" name="_honey" style="display:none">
+              <!-- Disable Captcha -->
+              <input type="hidden" name="_captcha" value="false">
+              <!-- Next page (can be a thank you page, but we will handle via JS if needed, or leave default) -->
+              <input type="hidden" name="_next" value="https://zyed-a-portfolio.com/">
+
+              <div class="terminal-input-group">
+                <span class="prompt-sym">> NAME:</span>
+                <input required type="text" name="name" autocomplete="off" class="terminal-input">
+              </div>
+              <div class="terminal-input-group">
+                <span class="prompt-sym">> EMAIL:</span>
+                <input required type="email" name="email" autocomplete="off" class="terminal-input">
+              </div>
+              <div class="terminal-input-group">
+                <span class="prompt-sym">> MESSAGE:</span>
+                <textarea required name="message" class="terminal-input terminal-textarea" rows="4"></textarea>
+              </div>
+              <div class="terminal-btn-wrap">
+                <button type="submit" class="btn-premium-primary">
+                  <span> SEND MESSAGE</span>
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PDF / Certificate Modal Viewer -->
+  <div class="modal" id="cert-modal">
+    <div class="modal-backdrop" onclick="closeCert()"></div>
+    <div class="modal-content">
+      <div class="modal-toolbar">
+        <a href="" id="cert-download-btn" download class="modal-download-btn">
+          <i class="fa-solid fa-download"></i> DOWNLOAD_PDF
+        </a>
+        <button class="modal-close" onclick="closeCert()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <iframe src="" id="cert-iframe"></iframe>
+    </div>
+  </div>
+
+  <!-- Contact Options Modal -->
+  <div class="modal" id="contact-modal">
+    <div class="modal-backdrop" onclick="closeContactModal()"></div>
+    <div class="modal-content" style="max-width: 350px; text-align: center; padding: 40px 20px;">
+      <h3 style="margin-bottom: 25px; color: var(--text-color);">Send via...</h3>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <button onclick="sendContact('whatsapp')" class="btn-premium-primary" style="background: rgba(37,211,102,0.1); color: #25D366; border-color: #25D366;">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </button>
+        <button onclick="sendContact('email')" class="btn-premium-secondary">
+          <i class="fa-solid fa-envelope"></i> Email App
+        </button>
+      </div>
+      <button class="modal-close" onclick="closeContactModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">Mohammed Zyed Aragiddi</div>
+      <p>&copy; 2026 Mohammed Zyed Aragiddi. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/zyed-110" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/zyed-a-18786930a/" target="_blank">LinkedIn</a>
+        <a href="assets/resume.pdf" target="_blank">Resume</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
