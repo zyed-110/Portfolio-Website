@@ -660,21 +660,18 @@ window.downloadCert = function(pdfPath, filename) {
 /* Mobile Menu Toggle */
 function initMobileMenu() {
   const mobileBtn = document.getElementById('mobile-menu-btn');
+  const ribbonPill = document.querySelector('.ribbon-pill');
   const navLinks = document.querySelector('.nav-links');
   
-  if (!mobileBtn || !navLinks) return;
+  if (!mobileBtn || !ribbonPill || !navLinks) return;
   
   mobileBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    mobileBtn.querySelector('i').classList.toggle('fa-bars-staggered');
-    mobileBtn.querySelector('i').classList.toggle('fa-xmark');
+    ribbonPill.classList.toggle('expanded');
   });
   
   navLinks.querySelectorAll('.nav-link, .nav-anim-btn').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      mobileBtn.querySelector('i').classList.add('fa-bars-staggered');
-      mobileBtn.querySelector('i').classList.remove('fa-xmark');
+      ribbonPill.classList.remove('expanded');
     });
   });
 }
