@@ -361,31 +361,120 @@ main {
 /* Navigation Bar */
 .navbar {
   position: fixed;
-  top: 0;
+  top: 15px;
   left: 0;
   width: 100vw;
   z-index: 100;
-  padding: 24px 24px;
+  padding: 0 24px;
   background: transparent;
-  transition: var(--transition-smooth);
-}
-
-.navbar.scrolled {
-  padding: 14px 24px;
-  background: rgba(6, 7, 10, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
+  pointer-events: none; /* Let clicks pass through empty space */
 }
 
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center the ribbon pill */
+  align-items: center;
+  position: relative;
+}
+
+/* The actual floating pill */
+.ribbon-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: var(--bg-nav);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.35s ease-in-out;
+  pointer-events: auto; /* Re-enable clicks inside the pill */
+}
+
+.navbar.scrolled .ribbon-pill {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.nav-anim-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.nav-anim-btn.active {
+  background-color: var(--accent-cyan);
+}
+
+.nav-anim-btn.active .nav-icon {
+  color: var(--bg-color);
+}
+
+.nav-icon {
+  width: auto;
+  font-size: 16px;
+  transition-duration: .3s;
+  color: var(--text-main);
+}
+
+.nav-anim-btn:hover {
+  width: 120px;
+  border-radius: 50px;
+  transition-duration: .3s;
+  background-color: var(--accent-cyan);
   align-items: center;
 }
 
+.nav-anim-btn:hover .nav-icon {
+  transition-duration: .3s;
+  transform: translateY(60px);
+}
+
+.nav-anim-btn::before {
+  position: absolute;
+  top: -20px;
+  content: attr(data-text);
+  color: var(--bg-color);
+  font-family: var(--font-sans);
+  transition-duration: .3s;
+  font-size: 2px;
+  opacity: 0;
+  font-weight: 700;
+}
+
+.nav-anim-btn:hover::before {
+  font-size: 14px;
+  opacity: 1;
+  transform: translateY(32px);
+  transition-duration: .3s;
+}
+
+.nav-socials {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: 25px; /* Moved down so it doesn't clip the top of the page */
+  transform: translateY(-50%);
+  pointer-events: auto; /* Enable clicks for socials */
+}
+
+/* Ensure Logo and Theme Toggle inside Ribbon are styled correctly */
 .logo {
   font-family: var(--font-display);
   font-size: 1.35rem;
@@ -393,6 +482,7 @@ main {
   color: var(--text-main);
   text-decoration: none;
   letter-spacing: -0.03em;
+  margin-right: 12px;
 }
 
 .logo-symbol {
@@ -402,23 +492,63 @@ main {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 36px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-color);
-  padding: 6px 20px;
-  border-radius: 100px;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .nav-link {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   text-decoration: none;
-  transition: var(--transition-smooth);
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  display: inline-block;
+  will-change: transform;
 }
 
-.nav-link:hover, .nav-link.active {
-  color: var(--accent-cyan);
+/* Desktop Hover Effects (macOS Dock style) */
+@media (min-width: 769px) {
+  .nav-link:hover, .nav-link:focus-visible {
+    transform: scale(1.22) translateY(-2px);
+    color: var(--text-main);
+    background: rgba(6, 182, 212, 0.12);
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+    z-index: 10;
+    position: relative;
+  }
+
+  .nav-link.active {
+    font-weight: 700;
+    color: var(--text-main);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    box-shadow: inset 0 0 10px rgba(6, 182, 212, 0.1);
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    top: 10px;
+    padding: 6px 12px;
+  }
+  
+  .nav-link:active {
+    transform: scale(1.1);
+    background: rgba(6, 182, 212, 0.1);
+  }
+  
+  .nav-link.active {
+    font-weight: 700;
+    color: var(--accent-cyan);
+  }
 }
 
 .nav-cta-btn {
@@ -2297,46 +2427,401 @@ html.light-theme .glowing-grid { background-image: linear-gradient(rgba(0, 0, 0,
 
 /* New SVG Switch CSS */
 .switch {
-  --a: 0.5s ease-out;
-  cursor: pointer;
   position: relative;
-  display: inline-flex;
-  height: 2em;
-  border-radius: 2em;
-  box-shadow: 0 0 0 0.66em #aaa;
-  aspect-ratio: 212.4992/84.4688;
-  background-color: #aaa;
-  margin-top: 5px;
-  font-size: 0.55em;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-#check {
+.switch #check {
   opacity: 0;
   width: 0;
   height: 0;
+}
+
+.slider {
   position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black; /* Default to Night */
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  z-index: 0;
+  overflow: hidden;
 }
 
-.switch svg {
-  height: 100%;
-  pointer-events: none;
+.sun-moon {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white; /* Default to Moon */
+  transform: translateX(26px);
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.switch svg path {
-  color: #fff;
-  stroke-width: 16;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 136 224;
-  transition:
-    all var(--a),
-    0s transform;
+#check:checked + .slider {
+  background-color: #2196f3; /* Checked to Day */
+}
+
+#check:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+#check:checked + .slider .sun-moon {
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+  background-color: yellow;
+  /* Can remove the rotate animation or invert it, but simple translate works fine */
+}
+
+.moon-dot {
+  opacity: 1; /* Default to Moon */
+  transition: 0.4s;
+  fill: gray;
+}
+
+#check:checked + .slider .sun-moon .moon-dot {
+  opacity: 0; /* Hide on Day */
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round .sun-moon {
+  border-radius: 50%;
+}
+
+#moon-dot-1 {
+  left: 10px;
+  top: 3px;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  z-index: 4;
+}
+
+#moon-dot-2 {
+  left: 2px;
+  top: 10px;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  z-index: 4;
+}
+
+#moon-dot-3 {
+  left: 16px;
+  top: 18px;
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  z-index: 4;
+}
+
+#light-ray-1 {
+  left: -8px;
+  top: -8px;
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  z-index: -1;
+  fill: white;
+  opacity: 10%;
+}
+
+#light-ray-2 {
+  left: -50%;
+  top: -50%;
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  z-index: -1;
+  fill: white;
+  opacity: 10%;
+}
+
+#light-ray-3 {
+  left: -18px;
+  top: -18px;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: -1;
+  fill: white;
+  opacity: 10%;
+}
+
+.cloud-light {
+  position: absolute;
+  fill: #eee;
+  animation-name: cloud-move;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+.cloud-dark {
+  position: absolute;
+  fill: #ccc;
+  animation-name: cloud-move;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+
+#cloud-1 {
+  left: 30px;
+  top: 15px;
+  width: 40px;
+}
+
+#cloud-2 {
+  left: 44px;
+  top: 10px;
+  width: 20px;
+}
+
+#cloud-3 {
+  left: 18px;
+  top: 24px;
+  width: 30px;
+}
+
+#cloud-4 {
+  left: 36px;
+  top: 18px;
+  width: 40px;
+}
+
+#cloud-5 {
+  left: 48px;
+  top: 14px;
+  width: 20px;
+}
+
+#cloud-6 {
+  left: 22px;
+  top: 26px;
+  width: 30px;
+}
+
+@keyframes cloud-move {
+  0% { transform: translateX(0px); }
+  40% { transform: translateX(4px); }
+  80% { transform: translateX(-4px); }
+  100% { transform: translateX(0px); }
+}
+
+.stars {
+  transform: translateY(0); /* Default to Moon */
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.star {
+  fill: white;
+  position: absolute;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  animation-name: star-twinkle;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+#check:checked + .slider .stars {
+  -webkit-transform: translateY(-32px);
+  -ms-transform: translateY(-32px);
+  transform: translateY(-32px);
+  opacity: 0;
+}
+
+#star-1 {
+  width: 20px;
+  top: 2px;
+  left: 3px;
+  animation-delay: 0.3s;
+}
+
+#star-2 {
+  width: 6px;
+  top: 16px;
+  left: 3px;
+}
+
+#star-3 {
+  width: 12px;
+  top: 20px;
+  left: 10px;
+  animation-delay: 0.6s;
+}
+
+#star-4 {
+  width: 18px;
+  top: 0px;
+  left: 18px;
+  animation-delay: 1.3s;
+}
+
+@keyframes star-twinkle {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.2); }
+  80% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+/* Magic Button CSS */
+.magic-btn {
+  --black-700: hsla(0 0% 12% / 1);
+  --border_radius: 9999px;
+  --transtion: 0.3s ease-in-out;
+  --offset: 2px;
+
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   transform-origin: center;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--border_radius);
+  transform: scale(calc(1 + (var(--active, 0) * 0.1)));
+  transition: transform var(--transtion);
 }
 
-#check:checked ~ .switch svg path {
-  stroke-dashoffset: 180;
-  transform: scaleY(-1);
+.magic-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-700);
+  border-radius: var(--border_radius);
+  box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
+    0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+    0 0 0 calc(var(--active, 0) * 0.375rem) hsl(260 97% 50% / 0.75);
+  transition: all var(--transtion);
+  z-index: 0;
+}
+
+.magic-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: hsla(260 97% 61% / 0.75);
+  background-image: radial-gradient(
+      at 51% 89%,
+      hsla(266, 45%, 74%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 100%, hsla(266, 36%, 60%, 1) 0px, transparent 50%),
+    radial-gradient(at 22% 91%, hsla(266, 36%, 60%, 1) 0px, transparent 50%);
+  background-position: top;
+  opacity: var(--active, 0);
+  border-radius: var(--border_radius);
+  transition: opacity var(--transtion);
+  z-index: 2;
+}
+
+.magic-btn:is(:hover, :focus-visible) {
+  --active: 1;
+}
+.magic-btn:active {
+  transform: scale(1);
+}
+
+.magic-btn .dots_border {
+  --size_border: calc(100% + 2px);
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--size_border);
+  height: var(--size_border);
+  background-color: transparent;
+  border-radius: var(--border_radius);
+  z-index: -10;
+}
+
+.magic-btn .dots_border::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left;
+  transform: rotate(0deg);
+  width: 100%;
+  height: 2rem;
+  background-color: white;
+  mask: linear-gradient(transparent 0%, white 120%);
+  -webkit-mask: linear-gradient(transparent 0%, white 120%);
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.magic-btn .sparkle {
+  position: relative;
+  z-index: 10;
+  width: 1.75rem;
+}
+
+.magic-btn .sparkle .path {
+  fill: currentColor;
+  stroke: currentColor;
+  transform-origin: center;
+  color: hsl(0, 0%, 100%);
+}
+
+.magic-btn:is(:hover, :focus) .sparkle .path {
+  animation: path 1.5s linear 0.5s infinite;
+}
+
+.magic-btn .sparkle .path:nth-child(1) { --scale_path_1: 1.2; }
+.magic-btn .sparkle .path:nth-child(2) { --scale_path_2: 1.2; }
+.magic-btn .sparkle .path:nth-child(3) { --scale_path_3: 1.2; }
+
+@keyframes path {
+  0%, 34%, 71%, 100% { transform: scale(1); }
+  17% { transform: scale(var(--scale_path_1, 1)); }
+  49% { transform: scale(var(--scale_path_2, 1)); }
+  83% { transform: scale(var(--scale_path_3, 1)); }
+}
+
+.magic-btn .text_button {
+  position: relative;
+  z-index: 10;
+  background-image: linear-gradient(
+    90deg,
+    hsla(0 0% 100% / 1) 0%,
+    hsla(0 0% 100% / var(--active, 0)) 120%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size: 1rem;
+  font-weight: 700;
+  color: transparent;
 }
 
 /* Responsive Socials */
@@ -2430,3 +2915,85 @@ html.light-theme .glowing-grid { background-image: linear-gradient(rgba(0, 0, 0,
   width: auto;
   margin-left: 20px;
 }
+
+/* --- 2026 RESPONSIVE BUG FIXES --- */
+
+/* Fix Project Media Overflow on Laptops & Tablets */
+.media-slide img, .media-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure it stays inside the mockup without stretching/overflow */
+  border-radius: 8px;
+}
+
+/* Fix Pyramid Loader scale overlapping on mobile */
+@media (max-width: 768px) {
+  .hero-pyramid-container {
+    transform: scale(0.4) !important; /* Force scale down the massive loader */
+    margin-top: -60px;
+    margin-bottom: -60px;
+  }
+  
+  .tech-timeline {
+    padding-left: 15px; /* Better padding for timeline on mobile */
+  }
+
+  /* Fix Mobile Navigation Menu */
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-color);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    gap: 30px;
+    transition: 0.3s ease-in-out;
+    border-radius: 0;
+    border: none;
+    z-index: 99;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  /* Fix Modal Overflow */
+  .modal-content {
+    width: 95% !important;
+    max-width: 95% !important;
+  }
+
+  /* Fix Navbar Crowding */
+  .nav-socials {
+    display: none !important; /* Hide socials from header on mobile to save space */
+  }
+}
+
+/* Ensure no horizontal scrolling overall */
+body, main, html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Styling for the new Contact section since we removed the form */
+.contact-section .btn-premium-primary {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Tech Specs Lists (Internships & Projects) */
+.tech-specs p, .tech-specs li {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.tech-specs strong {
+  color: var(--accent-cyan);
+}
+

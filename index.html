@@ -56,44 +56,137 @@
   <!-- Top Navigation Bar -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="logo">
-        <span class="logo-symbol">[</span>Mohammed Zyed Aragiddi<span class="logo-symbol">]</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#about" class="nav-link active" id="nav-about">About</a></li>
-        <li><a href="#specialties" class="nav-link" id="nav-specialties">Experience</a></li>
-        <li><a href="#dashboard" class="nav-link" id="nav-dashboard">Projects</a></li>
-        <li><a href="#certificates" class="nav-link" id="nav-certificates">Certifications</a></li>
-        <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
-      </ul>
-      <div class="nav-theme-toggle">
-        <input id="check" type="checkbox" />
-        <label class="switch" for="check">
-          <svg viewBox="0 0 212.4992 84.4688" overflow="visible">
-            <path
-              pathLength="360"
-              fill="none"
-              stroke="currentColor"
-              d="M 42.2496 0 A 42.24 42.24 90 0 0 0 42.2496 A 42.24 42.24 90 0 0 42.2496 84.4688 A 42.24 42.24 90 0 0 84.4992 42.2496 A 42.24 42.24 90 0 0 42.2496 0 A 42.24 42.24 90 0 0 0 42.2496 A 42.24 42.24 90 0 0 42.2496 84.4688 L 170.2496 84.4688 A 42.24 42.24 90 0 0 212.4992 42.2496 A 42.24 42.24 90 0 0 170.2496 0 A 42.24 42.24 90 0 0 128 42.2496 A 42.24 42.24 90 0 0 170.2496 84.4688 A 42.24 42.24 90 0 0 212.4992 42.2496 A 42.24 42.24 90 0 0 170.2496 0 L 42.2496 0"
-            ></path>
-          </svg>
-        </label>
+      <div class="ribbon-pill">
+        <a href="#hero" class="logo">
+          <span class="logo-symbol">[</span><span class="logo-symbol">]</span>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="#about" class="nav-anim-btn active" id="nav-about" data-text="About">
+              <i class="fa-solid fa-user nav-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#specialties" class="nav-anim-btn" id="nav-specialties" data-text="Experience">
+              <i class="fa-solid fa-briefcase nav-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#dashboard" class="nav-anim-btn" id="nav-dashboard" data-text="Projects">
+              <i class="fa-solid fa-laptop-code nav-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#certificates" class="nav-anim-btn" id="nav-certificates" data-text="Certifications">
+              <i class="fa-solid fa-certificate nav-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-anim-btn" id="nav-contact" data-text="Contact">
+              <i class="fa-solid fa-envelope nav-icon"></i>
+            </a>
+          </li>
+        </ul>
+        <div class="nav-theme-toggle">
+          <label class="switch">
+            <input id="check" type="checkbox" checked="darkTheme" />
+            <div class="slider round">
+              <div class="sun-moon">
+                <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+
+                <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+                <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="50"></circle>
+                </svg>
+              </div>
+              <div class="stars">
+                <svg id="star-1" class="star" viewBox="0 0 20 20">
+                  <path
+                    d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+                  </path>
+                </svg>
+                <svg id="star-2" class="star" viewBox="0 0 20 20">
+                  <path
+                    d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+                  </path>
+                </svg>
+                <svg id="star-3" class="star" viewBox="0 0 20 20">
+                  <path
+                    d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+                  </path>
+                </svg>
+                <svg id="star-4" class="star" viewBox="0 0 20 20">
+                  <path
+                    d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+          </label>
+        </div>
       </div>
       <div class="nav-socials">
         <!-- Mobile Socials (hidden on desktop via CSS) -->
         <div class="mobile-socials">
-          <a href="https://www.instagram.com/zyed_106/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://github.com/zyed-110" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/zyed-a-18786930a/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="Resume/ZyedAResume.pdf" target="_blank" aria-label="Resume" class="resume-icon-btn"><i class="fa-solid fa-file-pdf"></i></a>
+          <a href="https://www.instagram.com/zyed_106/" target="_blank" aria-label="Instagram"><i
+              class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/zyed-110" target="_blank" aria-label="GitHub"><i
+              class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/zyed-a-18786930a/" target="_blank" aria-label="LinkedIn"><i
+              class="fa-brands fa-linkedin"></i></a>
+          <a href="Resume/ZyedAResume.pdf" target="_blank" aria-label="Resume" class="resume-icon-btn"><i
+              class="fa-solid fa-file-pdf"></i></a>
         </div>
-        
+
         <!-- Desktop Socials (hidden on mobile via CSS) -->
-        <div class="desktop-socials" style="transform: scale(0.6); transform-origin: right center; margin-right: -10px; margin-top: -15px;">
+        <div class="desktop-socials"
+          style="transform: scale(0.6); transform-origin: right center; margin-right: -10px; margin-top: -15px;">
           <div class="main">
             <div class="up">
               <button class="card1" onclick="window.open('https://www.instagram.com/zyed_106/', '_blank')">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="30px" height="30px" fill-rule="nonzero" class="instagram"><g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)"><path d="M11.46875,5c-3.55078,0 -6.46875,2.91406 -6.46875,6.46875v9.0625c0,3.55078 2.91406,6.46875 6.46875,6.46875h9.0625c3.55078,0 6.46875,-2.91406 6.46875,-6.46875v-9.0625c0,-3.55078 -2.91406,-6.46875 -6.46875,-6.46875zM11.46875,7h9.0625c2.47266,0 4.46875,1.99609 4.46875,4.46875v9.0625c0,2.47266 -1.99609,4.46875 -4.46875,4.46875h-9.0625c-2.47266,0 -4.46875,-1.99609 -4.46875,-4.46875v-9.0625c0,-2.47266 1.99609,-4.46875 4.46875,-4.46875zM21.90625,9.1875c-0.50391,0 -0.90625,0.40234 -0.90625,0.90625c0,0.50391 0.40234,0.90625 0.90625,0.90625c0.50391,0 0.90625,-0.40234 0.90625,-0.90625c0,-0.50391 -0.40234,-0.90625 -0.90625,-0.90625zM16,10c-3.30078,0 -6,2.69922 -6,6c0,3.30078 2.69922,6 6,6c3.30078,0 6,-2.69922 6,-6c0,-3.30078 -2.69922,-6 -6,-6zM16,12c2.22266,0 4,1.77734 4,4c0,2.22266 -1.77734,4 -4,4c-2.22266,0 -4,-1.77734 -4,-4c0,-2.22266 1.77734,-4 4,-4z"></path></g></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256"
+                  width="30px" height="30px" fill-rule="nonzero" class="instagram">
+                  <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+                    stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                    font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <g transform="scale(8,8)">
+                      <path
+                        d="M11.46875,5c-3.55078,0 -6.46875,2.91406 -6.46875,6.46875v9.0625c0,3.55078 2.91406,6.46875 6.46875,6.46875h9.0625c3.55078,0 6.46875,-2.91406 6.46875,-6.46875v-9.0625c0,-3.55078 -2.91406,-6.46875 -6.46875,-6.46875zM11.46875,7h9.0625c2.47266,0 4.46875,1.99609 4.46875,4.46875v9.0625c0,2.47266 -1.99609,4.46875 -4.46875,4.46875h-9.0625c-2.47266,0 -4.46875,-1.99609 -4.46875,-4.46875v-9.0625c0,-2.47266 1.99609,-4.46875 4.46875,-4.46875zM21.90625,9.1875c-0.50391,0 -0.90625,0.40234 -0.90625,0.90625c0,0.50391 0.40234,0.90625 0.90625,0.90625c0.50391,0 0.90625,-0.40234 0.90625,-0.90625c0,-0.50391 -0.40234,-0.90625 -0.90625,-0.90625zM16,10c-3.30078,0 -6,2.69922 -6,6c0,3.30078 2.69922,6 6,6c3.30078,0 6,-2.69922 6,-6c0,-3.30078 -2.69922,-6 -6,-6zM16,12c2.22266,0 4,1.77734 4,4c0,2.22266 -1.77734,4 -4,4c-2.22266,0 -4,-1.77734 -4,-4c0,-2.22266 1.77734,-4 4,-4z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
                 <span class="social-text">Instagram</span>
               </button>
               <button class="card2" onclick="window.open('https://www.linkedin.com/in/zyed-a-18786930a/', '_blank')">
@@ -103,12 +196,17 @@
             </div>
             <div class="down">
               <button class="card3" onclick="window.open('https://github.com/zyed-110', '_blank')">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px" class="github"><path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px" class="github">
+                  <path
+                    d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z">
+                  </path>
+                </svg>
                 <span class="social-text">GitHub</span>
               </button>
-              <button class="card4" onclick="window.open('mailto:zyed7094@gmail.com', '_blank')">
-                <i class="fa-solid fa-envelope discord" style="font-size: 30px; color: #8c9eff;"></i>
-                <span class="social-text">Email</span>
+              <button class="card4"
+                onclick="window.open('https://www.naukri.com/mnjuser/profile?id=&altresid', '_blank')">
+                <i class="fa-solid fa-briefcase discord" style="font-size: 30px; color: #0073e6;"></i>
+                <span class="social-text">Naukri</span>
               </button>
             </div>
           </div>
@@ -128,21 +226,23 @@
 
         <!-- Left: Headline and Description -->
         <div class="hero-text-side">
-          <div class="tech-badge"><span class="pulse-indicator"></span> ZYED_A // DATA_SCIENCE_PORTFOLIO</div>
+          <div class="tech-badge"><span class="pulse-indicator"></span></div>
           <div class="hero-content-flex">
             <div class="hero-text-content">
               <h1 class="hero-title">
                 AI & Software Engineer
               </h1>
-              <h2 class="hero-subtitle">Building intelligent applications with Machine Learning, Computer Vision, Backend
+              <h2 class="hero-subtitle">Building intelligent applications with Machine Learning, Computer Vision,
+                Backend
                 Development and Data Science.</h2>
               <p class="hero-desc">
-                Hi, I'm Mohammed Zyed Aragiddi, a Computer Science (Data Science) graduate from Bengaluru passionate about
+                Hi, I'm Mohammed Zyed Aragiddi, a Computer Science (Data Science) graduate from Bengaluru passionate
+                about
                 building AI-powered software, scalable backend systems, and intelligent automation. I enjoy creating
                 real-world solutions using Machine Learning, Computer Vision, and Full Stack Development.
               </p>
             </div>
-            
+
             <div class="hero-pyramid-container">
               <div class="pyramid-loader">
                 <div class="wrapper">
@@ -151,7 +251,7 @@
                   <span class="side side3"></span>
                   <span class="side side4"></span>
                   <span class="shadow"></span>
-                </div>  
+                </div>
               </div>
             </div>
           </div>
@@ -178,7 +278,6 @@
           <div class="hero-action-buttons">
             <a href="#dashboard" class="btn-premium-primary">View Projects</a>
             <a href="Resume/ZyedAResume.pdf" target="_blank" class="btn-premium-secondary">Download Resume</a>
-            <a href="#contact" class="btn-premium-outline">Contact Me</a>
           </div>
 
           <div class="hero-tech-badges">
@@ -235,7 +334,8 @@
                 </div>
               </div>
               <div style="margin-top: 30px;">
-                <a href="Resume/ZyedAResume.pdf" target="_blank" class="btn-premium-secondary" style="font-size: 0.9rem; padding: 10px 20px;">
+                <a href="Resume/ZyedAResume.pdf" target="_blank" class="btn-premium-secondary"
+                  style="font-size: 0.9rem; padding: 10px 20px;">
                   <i class="fa-solid fa-file-pdf"></i> View Resume
                 </a>
               </div>
@@ -467,12 +567,12 @@
     <!-- Connect / Contact Section -->
     <section id="contact" class="contact-section">
       <div class="section-container border-top">
-        <div class="section-header-tag">[ SECTION 05 // SYSTEM_COMM ]</div>
+        <div class="section-header-tag">[ SECTION 05 // PERONAL INFORMATION ]</div>
 
         <div class="contact-grid">
 
           <div class="contact-specs scroll-reveal">
-            <h2 class="title-tech">COMM_CHANNELS_</h2>
+            <h2 class="title-tech">PERSONAL INFORMATION</h2>
             <div class="specs-list">
               <div class="spec-row">
                 <span class="spec-label">EMAIL_ADDRESS:</span>
@@ -504,36 +604,30 @@
             </div>
           </div>
 
-          <div class="contact-terminal scroll-reveal premium-glass">
-            <h2 class="title-tech">CONTACT</h2>
-            <!-- Note: Replace YOUR_EMAIL@example.com with actual email or token for FormSubmit -->
-            <form class="terminal-form" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
-              <!-- Honeypot -->
-              <input type="text" name="_honey" style="display:none">
-              <!-- Disable Captcha -->
-              <input type="hidden" name="_captcha" value="false">
-              <!-- Next page (can be a thank you page, but we will handle via JS if needed, or leave default) -->
-              <input type="hidden" name="_next" value="https://zyed-a-portfolio.com/">
-
-              <div class="terminal-input-group">
-                <span class="prompt-sym">> NAME:</span>
-                <input required type="text" name="name" autocomplete="off" class="terminal-input">
-              </div>
-              <div class="terminal-input-group">
-                <span class="prompt-sym">> EMAIL:</span>
-                <input required type="email" name="email" autocomplete="off" class="terminal-input">
-              </div>
-              <div class="terminal-input-group">
-                <span class="prompt-sym">> MESSAGE:</span>
-                <textarea required name="message" class="terminal-input terminal-textarea" rows="4"></textarea>
-              </div>
-              <div class="terminal-btn-wrap">
-                <button type="submit" class="btn-premium-primary">
-                  <span> SEND MESSAGE</span>
-                  <i class="fa-solid fa-paper-plane"></i>
-                </button>
-              </div>
-            </form>
+          <div class="contact-terminal scroll-reveal premium-glass"
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px;">
+            <h2 class="title-tech" style="margin-bottom: 20px; color: var(--accent-cyan);">INITIATE CONTACT</h2>
+            <p
+              style="color: var(--text-muted); margin-bottom: 30px; font-family: var(--font-mono); font-size: 0.9rem; max-width: 400px;">
+              > Ready to collaborate on AI integration or backend architecture? Establish a direct connection channel
+              below.
+            </p>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%;">
+              <button class="magic-btn" onclick="window.open('https://wa.me/917019716064', '_blank')">
+                <div class="dots_border"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" class="sparkle">
+                  <path class="path" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-23.1-115-65.1-157zM223.9 414.7c-33.1 0-65.5-8.9-94-25.8l-6.7-4-69.8 18.3L72 334.3l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
+                </svg>
+                <span class="text_button">WhatsApp</span>
+              </button>
+              <button class="magic-btn" onclick="window.location.href='mailto:zyed7094@gmail.com'">
+                <div class="dots_border"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512" class="sparkle">
+                  <path class="path" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path>
+                </svg>
+                <span class="text_button">Email</span>
+              </button>
+            </div>
           </div>
 
         </div>
@@ -562,7 +656,8 @@
     <div class="modal-content" style="max-width: 350px; text-align: center; padding: 40px 20px;">
       <h3 style="margin-bottom: 25px; color: var(--text-color);">Send via...</h3>
       <div style="display: flex; flex-direction: column; gap: 15px;">
-        <button onclick="sendContact('whatsapp')" class="btn-premium-primary" style="background: rgba(37,211,102,0.1); color: #25D366; border-color: #25D366;">
+        <button onclick="sendContact('whatsapp')" class="btn-premium-primary"
+          style="background: rgba(37,211,102,0.1); color: #25D366; border-color: #25D366;">
           <i class="fa-brands fa-whatsapp"></i> WhatsApp
         </button>
         <button onclick="sendContact('email')" class="btn-premium-secondary">

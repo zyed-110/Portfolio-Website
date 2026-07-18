@@ -4,18 +4,15 @@
 const PROJECTS_DATA = [
   {
     name: "AI Navigation System",
-    lang: "TypeScript",
-    desc: "A smart voice and text-guided navigation assistant integrating speech synthesis and GIS APIs for real-time conversational routing.",
+    short_desc: "A smart voice and text-guided navigation assistant integrating speech synthesis and GIS APIs for real-time conversational routing.",
     status: "STABLE",
     version: "v1.0.4",
     github: "https://github.com/zyed-110/AI-Navigation-System",
     live_demo: "#",
-    skills: ["TypeScript", "Speech Synthesis", "GIS APIs", "NLP"],
-    achievements: [
-      "Engineered a real-time conversational routing engine",
-      "Integrated GIS APIs for accurate local landmark querying",
-      "Built a seamless frontend experience with interactive maps"
-    ],
+    tech_stack: ["Python", "FastAPI", "React Native", "TypeScript"],
+    libraries: ["Speech Synthesis", "GIS APIs", "NLP"],
+    database: ["PostgreSQL"],
+    tools: ["Git", "GitHub", "Render", "Expo"],
     media: [
       { type: "image", src: "Screenshots/AI Navigation/Navigator/WhatsApp Image 2026-07-17 at 4.48.12 PM.jpeg" },
       { type: "image", src: "Screenshots/AI Navigation/Navigator/WhatsApp Image 2026-07-17 at 4.48.13 PM.jpeg" },
@@ -29,37 +26,31 @@ const PROJECTS_DATA = [
   },
   {
     name: "Object Recognition System",
-    lang: "Python",
-    desc: "High-performance computer vision pipeline utilizing YOLOv8n to process real-time feeds and classify targets across 80 COCO categories.",
+    short_desc: "High-performance computer vision pipeline utilizing YOLOv8 to process real-time feeds and classify targets across 80 COCO categories.",
     status: "OPTIMIZED",
     version: "v2.1.0",
     github: "https://github.com/zyed-110/Image-Detection",
     live_demo: "#",
-    skills: ["Python", "YOLOv8", "OpenCV", "Deep Learning"],
-    achievements: [
-      "Achieved high-confidence real-time object detection",
-      "Optimized inference speed for live video feeds",
-      "Implemented custom bounding box framing logic"
-    ],
+    tech_stack: ["Python"],
+    libraries: ["YOLOv8", "OpenCV", "NumPy", "Deep Learning"],
+    database: ["Local File System"],
+    tools: ["VS Code", "Git", "GitHub"],
     media: [
-      { type: "image", src: "Screenshots/Image recogonition/ID1.png" },
-      { type: "image", src: "Screenshots/Image recogonition/ID.png" }
+      { type: "image", src: "Screenshots/Image recognition/ID1.png" },
+      { type: "image", src: "Screenshots/Image recognition/ID.png" }
     ]
   },
   {
     name: "Alice Voice Chatbot",
-    lang: "Python / JS",
-    desc: "An interactive voice-enabled AI companion featuring speech-to-text feedback, custom UI visualizers, and conversational flow logic.",
+    short_desc: "An interactive voice-enabled AI companion featuring speech-to-text feedback, custom UI visualizers, and modular conversational flow logic.",
     status: "COMPLETED",
     version: "v1.2.0",
     github: "https://github.com/zyed-110",
     live_demo: "#",
-    skills: ["Python", "JavaScript", "Web Speech API", "UI Animation"],
-    achievements: [
-      "Developed an engaging animated UI with sound visualizers",
-      "Integrated Web Speech API for low-latency transcription",
-      "Built a modular Python backend for processing intents"
-    ],
+    tech_stack: ["Python", "JavaScript", "HTML5", "CSS3"],
+    libraries: ["Web Speech API", "UI Animations"],
+    database: ["Local State"],
+    tools: ["VS Code", "Git"],
     media: [
       { type: "image", src: "Screenshots/Voice chatbot/Alice1.png" },
       { type: "image", src: "Screenshots/Voice chatbot/Alice2.png" },
@@ -68,18 +59,15 @@ const PROJECTS_DATA = [
   },
   {
     name: "Library Management System",
-    lang: "Python",
-    desc: "Robust console-based database architecture managing complex library records, secure borrowing transactions, and admin parameters.",
+    short_desc: "Robust console-based database architecture managing complex library records, secure borrowing transactions, and admin parameters.",
     status: "STABLE",
     version: "v1.0.0",
     github: "https://github.com/zyed-110/Library-Management-System",
     live_demo: "#",
-    skills: ["Python", "OOP", "JSON DB", "File I/O"],
-    achievements: [
-      "Designed a secure file-based relational data structure",
-      "Implemented comprehensive admin and user auth flows",
-      "Optimized search and transaction logging operations"
-    ],
+    tech_stack: ["Python"],
+    libraries: ["Object-Oriented Programming (OOP)"],
+    database: ["JSON DB", "File I/O"],
+    tools: ["Console CLI", "Git"],
     media: [
       { type: "image", src: "https://placehold.co/600x400/13141c/ff4e00?text=Library+Management" }
     ]
@@ -150,7 +138,6 @@ function initGridDots() {
     gridContainer.appendChild(dot);
   }
   
-  // Grid ripple stagger animation on click
   gridContainer.addEventListener('click', (e) => {
     if (!e.target.classList.contains('dot')) return;
     
@@ -179,7 +166,6 @@ function initGridDots() {
     });
   });
   
-  // Continuous idle wave animation
   anime({
     targets: '#grid-dots .dot',
     scale: [
@@ -198,7 +184,7 @@ function initGridDots() {
   });
 }
 
-/* Scroll Zoom effect for fixed Robot background */
+/* Scroll Zoom effect */
 function initRobotBackgroundZoom() {
   const robotImg = document.getElementById('robot-bg-img');
   if (!robotImg) return;
@@ -208,16 +194,14 @@ function initRobotBackgroundZoom() {
     if (scrollMax <= 0) return;
     
     const fraction = window.scrollY / scrollMax;
-    // Zoom background image from scale 1 to 1.3
     const zoomScale = 1 + fraction * 0.28;
-    // Translate slightly to follow scroll nicely
     const translateY = fraction * -50;
     
     robotImg.style.transform = `scale(${zoomScale}) translateY(${translateY}px)`;
   });
 }
 
-/* 3D Tilt Hover effect for cards */
+/* 3D Tilt Hover */
 function initCardTilts() {
   const cards = document.querySelectorAll('.spec-card, .cert-card-schematic');
   
@@ -244,11 +228,11 @@ function initCardTilts() {
   });
 }
 
-/* 4. Active Navbar and Scrollspy */
+/* Active Navbar */
 function initScrollspyAndNavbar() {
   const navbar = document.getElementById('navbar');
   const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.nav-link, .nav-anim-btn');
   
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
@@ -275,7 +259,7 @@ function initScrollspyAndNavbar() {
   });
 }
 
-/* 5. Reveal elements smoothly on scroll with fade-in AND fade-out */
+/* Smooth Fade In and Out */
 function initRevealOnScroll() {
   const elements = document.querySelectorAll('.scroll-reveal');
   
@@ -289,7 +273,6 @@ function initRevealOnScroll() {
                      entry.target.classList.contains('contact-specs');
       
       if (entry.isIntersecting) {
-        // --- FADE IN ---
         if (isCard) {
           anime.remove(entry.target);
           anime({
@@ -311,16 +294,8 @@ function initRevealOnScroll() {
             duration: 900
           });
         }
-      } else {
-        // --- FADE OUT when leaving viewport ---
-        anime.remove(entry.target);
-        anime({
-          targets: entry.target,
-          opacity: [1, 0],
-          translateY: [0, -20],
-          easing: 'easeInCubic',
-          duration: 400
-        });
+        // Unobserve to prevent re-triggering animations endlessly
+        observer.unobserve(entry.target);
       }
     });
   }, {
@@ -334,17 +309,15 @@ function initRevealOnScroll() {
   });
 }
 
-/* 6. Console Projects Dashboard tab switcher */
+/* Console Project Switcher */
 window.switchConsoleProject = function(index) {
   if (index === activeProjectIndex) return;
   
-  // Update active tab styling
   document.querySelectorAll('.console-tab').forEach((tab, i) => {
     tab.classList.remove('active');
     if (i === index) tab.classList.add('active');
   });
   
-  // Fade out old content
   const workspace = document.getElementById('active-project-details');
   anime({
     targets: workspace,
@@ -356,7 +329,6 @@ window.switchConsoleProject = function(index) {
       activeProjectIndex = index;
       renderConsoleProject(index);
       
-      // Fade in new content with spring elastic easing
       anime({
         targets: workspace,
         opacity: [0, 1],
@@ -368,7 +340,6 @@ window.switchConsoleProject = function(index) {
   });
 };
 
-// SVG Loader markup for video loading state
 const VIDEO_LOADER_SVG = `
 <svg id="svg-global" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 94 136" height="136" width="94">
   <path stroke="#4B22B5" d="M87.3629 108.433L49.1073 85.3765C47.846 84.6163 45.8009 84.6163 44.5395 85.3765L6.28392 108.433C5.02255 109.194 5.02255 110.426 6.28392 111.187L44.5395 134.243C45.8009 135.004 47.846 135.004 49.1073 134.243L87.3629 111.187C88.6243 110.426 88.6243 109.194 87.3629 108.433Z" id="line-v1"></path>
@@ -443,7 +414,6 @@ function renderConsoleProject(index) {
   const p = PROJECTS_DATA[index];
   currentSlideIndex = 0;
   
-  // Build slides from media array
   let carouselSlides = '';
   let carouselDots = '';
   
@@ -471,22 +441,27 @@ function renderConsoleProject(index) {
     }
   });
   
-  const skillsHTML = p.skills.map(sk => `<span>${sk}</span>`).join('');
-  
-  // Navigation arrows (only if more than 1 media item)
+  const techStackHTML = p.tech_stack.map(sk => `<span>${sk}</span>`).join('');
   const navArrows = p.media.length > 1 ? `
     <button class="swipe-nav-btn swipe-prev" onclick="navigateSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
     <button class="swipe-nav-btn swipe-next" onclick="navigateSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
   ` : '';
-  
-  // Media counter
   const mediaCounter = p.media.length > 1 ? `<div class="media-counter"><span id="slide-current">1</span> / ${p.media.length}</div>` : '';
   
-  // Build achievements list
-  const achievementsHTML = p.achievements ? p.achievements.map(ach => `<li><i class="fa-solid fa-check" style="color: var(--accent-orange); margin-right: 8px;"></i> ${ach}</li>`).join('') : '';
+  // Format the tools/libraries/DB lists
+  const buildList = (title, items) => {
+    if (!items || items.length === 0) return '';
+    return `<li><strong>${title}:</strong> ${items.join(', ')}</li>`;
+  };
 
-  // Build action buttons
-  const githubBtn = p.github ? `<a href="${p.github}" target="_blank" class="btn-premium-primary">View Source <i class="fa-brands fa-github"></i></a>` : '';
+  const projectDetailsHTML = `
+    <li><strong>Tech Stack:</strong> ${p.tech_stack.join(', ')}</li>
+    ${buildList("Libraries/APIs", p.libraries)}
+    ${buildList("Databases", p.database)}
+    ${buildList("Tools & Deployment", p.tools)}
+  `;
+
+  const githubBtn = p.github ? `<a href="${p.github}" target="_blank" class="btn-premium-primary">View GitHub <i class="fa-brands fa-github"></i></a>` : '';
   const liveDemoBtn = p.live_demo && p.live_demo !== "#" ? `<a href="${p.live_demo}" target="_blank" class="btn-premium-secondary">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : '';
 
   workspace.innerHTML = `
@@ -508,20 +483,20 @@ function renderConsoleProject(index) {
 
         <div class="project-details-text">
           <h3>${p.name}</h3>
-          <p class="project-desc">${p.desc}</p>
+          <p class="project-desc">${p.short_desc}</p>
           
           <div class="card-skills">
-            ${skillsHTML}
+            ${techStackHTML}
           </div>
 
-          <div class="project-achievements">
-            <h4>Key Features</h4>
-            <ul>
-              ${achievementsHTML}
+          <div class="project-achievements tech-specs">
+            <h4>Technical Environment</h4>
+            <ul style="list-style-type: disc; margin-left: 20px; line-height: 1.8;">
+              ${projectDetailsHTML}
             </ul>
           </div>
           
-          <div class="project-console-links">
+          <div class="project-console-links" style="margin-top: 25px;">
             ${githubBtn}
             ${liveDemoBtn}
           </div>
@@ -531,17 +506,14 @@ function renderConsoleProject(index) {
     </div>
   `;
   
-  // Attach swipe/drag events
   initSwipeEvents();
 }
 
-// Go to specific slide
 window.goToSlide = function(idx) {
   const slides = document.querySelectorAll('#media-carousel-track .media-slide');
   const dots = document.querySelectorAll('#media-carousel-dots .carousel-dot');
   if (!slides.length || idx < 0 || idx >= slides.length) return;
   
-  // Pause any playing videos on current slide
   const currentSlide = slides[currentSlideIndex];
   if (currentSlide && currentSlide.dataset.type === 'video') {
     const vid = currentSlide.querySelector('.slide-video');
@@ -555,17 +527,14 @@ window.goToSlide = function(idx) {
   slides[idx].classList.add('active');
   dots[idx].classList.add('active');
   
-  // Update counter
   const counter = document.getElementById('slide-current');
   if (counter) counter.textContent = idx + 1;
   
-  // If this is a video slide, trigger the loader
   if (slides[idx].dataset.type === 'video') {
     loadVideoSlide(slides[idx], idx);
   }
 };
 
-// Navigate relative
 window.navigateSlide = function(direction) {
   const slides = document.querySelectorAll('#media-carousel-track .media-slide');
   if (!slides.length) return;
@@ -575,7 +544,6 @@ window.navigateSlide = function(direction) {
   window.goToSlide(newIdx);
 };
 
-// Video loader: show SVG for 2 seconds, then reveal & play video
 function loadVideoSlide(slideEl, idx) {
   const loader = document.getElementById(`video-loader-${idx}`);
   const video = slideEl.querySelector('.slide-video');
@@ -583,7 +551,6 @@ function loadVideoSlide(slideEl, idx) {
   
   if (!video || !loader) return;
   
-  // Check if video was already loaded
   if (video.dataset.loaded === 'true') {
     loader.classList.add('hidden');
     if (badge) badge.classList.add('hidden');
@@ -591,11 +558,9 @@ function loadVideoSlide(slideEl, idx) {
     return;
   }
   
-  // Show loader
   loader.classList.remove('hidden');
   if (badge) badge.classList.add('hidden');
   
-  // Set the actual source if not yet set
   if (video.getAttribute('src') !== video.dataset.src) {
     const source = video.querySelector('source');
     if (source) source.src = source.dataset.src;
@@ -603,7 +568,6 @@ function loadVideoSlide(slideEl, idx) {
     video.load();
   }
   
-  // Wait 2 seconds (loader animation), then hide loader and play
   setTimeout(() => {
     loader.classList.add('hidden');
     video.dataset.loaded = 'true';
@@ -611,12 +575,10 @@ function loadVideoSlide(slideEl, idx) {
   }, 2000);
 }
 
-// Swipe / drag support for touch and mouse
 function initSwipeEvents() {
   const track = document.getElementById('media-carousel-track');
   if (!track) return;
   
-  // Touch events
   track.addEventListener('touchstart', (e) => {
     swipeStartX = e.changedTouches[0].screenX;
   }, { passive: true });
@@ -626,7 +588,6 @@ function initSwipeEvents() {
     handleSwipe();
   }, { passive: true });
   
-  // Mouse drag events
   let isDragging = false;
   track.addEventListener('mousedown', (e) => {
     isDragging = true;
@@ -636,7 +597,6 @@ function initSwipeEvents() {
   
   track.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
-    // Visual feedback could go here
   });
   
   track.addEventListener('mouseup', (e) => {
@@ -659,15 +619,13 @@ function handleSwipe() {
   if (Math.abs(diff) < threshold) return;
   
   if (diff > 0) {
-    // Swipe left => next
     window.navigateSlide(1);
   } else {
-    // Swipe right => prev
     window.navigateSlide(-1);
   }
 }
 
-/* 7. PDF Certificates Modal Handler */
+/* PDF Certificates Modal Handler */
 const certModal = document.getElementById('cert-modal');
 const certIframe = document.getElementById('cert-iframe');
 const certDownloadBtn = document.getElementById('cert-download-btn');
@@ -675,7 +633,6 @@ const certDownloadBtn = document.getElementById('cert-download-btn');
 window.openCert = function(pdfPath) {
   if (!certModal || !certIframe) return;
   certIframe.src = pdfPath;
-  // Set download button href
   if (certDownloadBtn) {
     certDownloadBtn.href = pdfPath;
   }
@@ -691,7 +648,6 @@ window.closeCert = function() {
   document.body.style.overflow = '';
 };
 
-/* Download certificate directly */
 window.downloadCert = function(pdfPath, filename) {
   const link = document.createElement('a');
   link.href = pdfPath;
@@ -701,7 +657,7 @@ window.downloadCert = function(pdfPath, filename) {
   document.body.removeChild(link);
 };
 
-/* 8. Mobile Menu Toggle */
+/* Mobile Menu Toggle */
 function initMobileMenu() {
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
@@ -714,7 +670,7 @@ function initMobileMenu() {
     mobileBtn.querySelector('i').classList.toggle('fa-xmark');
   });
   
-  navLinks.querySelectorAll('.nav-link').forEach(link => {
+  navLinks.querySelectorAll('.nav-link, .nav-anim-btn').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
       mobileBtn.querySelector('i').classList.add('fa-bars-staggered');
@@ -723,12 +679,11 @@ function initMobileMenu() {
   });
 }
 
-/* 9. Theme Toggle — Dark / Light Mode */
+/* Theme Toggle */
 function initThemeToggle() {
   const toggle = document.getElementById('check');
   if (!toggle) return;
 
-  // Check saved preference
   const savedTheme = localStorage.getItem('portfolio-theme');
   if (savedTheme === 'light') {
     document.documentElement.classList.add('light-theme');
@@ -746,29 +701,21 @@ function initThemeToggle() {
   });
 }
 
-/* 10. Contact Form Logic (WhatsApp / Email Interception) */
-document.addEventListener('DOMContentLoaded', () => {
-  const contactForm = document.querySelector('.terminal-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // Stop default formsubmit.co behavior
-      
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-      
-      if (isMobile) {
-        // Show options modal on mobile
-        const modal = document.getElementById('contact-modal');
-        if (modal) {
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      } else {
-        // Directly open email on laptop
-        sendContact('email');
-      }
-    });
+/* Contact Routing Logic */
+window.openContactChoice = function() {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+  
+  if (isMobile) {
+    const modal = document.getElementById('contact-modal');
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  } else {
+    // Desktop: Directly trigger email
+    sendContact('email');
   }
-});
+};
 
 window.closeContactModal = function() {
   const modal = document.getElementById('contact-modal');
@@ -781,13 +728,13 @@ window.closeContactModal = function() {
 window.sendContact = function(method) {
   const emailTo = 'zyed7094@gmail.com';
   const waNumber = '917019716064';
-  const defaultText = 'Hello Zyed nice to meet you';
+  const defaultText = 'Hello Zyed, I am reaching out from your portfolio.';
   const encodedText = encodeURIComponent(defaultText);
   
   if (method === 'whatsapp') {
     window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
   } else if (method === 'email') {
-    window.location.href = `mailto:${emailTo}?subject=Hello%20Zyed&body=${encodedText}`;
+    window.location.href = `mailto:${emailTo}?subject=Portfolio%20Inquiry&body=${encodedText}`;
   }
   
   closeContactModal();
