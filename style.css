@@ -1863,11 +1863,12 @@ footer p {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 260px;
+    width: 80px;
     height: 100vh;
     background-color: var(--bg-color);
     flex-direction: column;
-    padding: 100px 30px;
+    padding: 100px 0;
+    align-items: center;
     transition: var(--transition-smooth);
     border-left: 1px solid var(--border-color);
     border-radius: 0;
