@@ -4,12 +4,12 @@
 const PROJECTS_DATA = [
   {
     name: "AI Navigation System",
-    short_desc: "A smart voice and text-guided navigation assistant integrating speech synthesis and GIS APIs for real-time conversational routing.",
+    short_desc: "Architected a real-time conversational navigation engine utilizing FastAPI, React Native, and PostgreSQL. Implemented dynamic routing algorithms via GIS APIs and integrated NLP-based speech synthesis for intelligent voice guidance.",
     status: "STABLE",
     version: "v1.0.4",
     github: "https://github.com/zyed-110/AI-Navigation-System",
     live_demo: "#",
-    tech_stack: ["Python", "FastAPI", "React Native", "TypeScript"],
+    tech_stack: ["Python", "FastAPI", "React Native", "TypeScript", "PostgreSQL", "GIS APIs"],
     libraries: ["Speech Synthesis", "GIS APIs", "NLP"],
     database: ["PostgreSQL"],
     tools: ["Git", "GitHub", "Render", "Expo"],
@@ -26,12 +26,12 @@ const PROJECTS_DATA = [
   },
   {
     name: "Object Recognition System",
-    short_desc: "High-performance computer vision pipeline utilizing YOLOv8 to process real-time feeds and classify targets across 80 COCO categories.",
+    short_desc: "Developed a low-latency computer vision pipeline utilizing YOLOv8 and OpenCV. Optimized deep learning inference to process real-time video feeds for multi-class object detection across 80 COCO categories.",
     status: "OPTIMIZED",
     version: "v2.1.0",
     github: "https://github.com/zyed-110/Image-Detection",
     live_demo: "#",
-    tech_stack: ["Python"],
+    tech_stack: ["Python", "YOLOv8", "OpenCV", "NumPy", "Deep Learning"],
     libraries: ["YOLOv8", "OpenCV", "NumPy", "Deep Learning"],
     database: ["Local File System"],
     tools: ["VS Code", "Git", "GitHub"],
@@ -42,12 +42,12 @@ const PROJECTS_DATA = [
   },
   {
     name: "Alice Voice Chatbot",
-    short_desc: "An interactive voice-enabled AI companion featuring speech-to-text feedback, custom UI visualizers, and modular conversational flow logic.",
+    short_desc: "Engineered a voice-enabled AI agent leveraging the Web Speech API and modular state management. Designed asynchronous conversational flows and integrated custom UI visualizers using HTML5/CSS3 and Vanilla JS.",
     status: "COMPLETED",
     version: "v1.2.0",
     github: "https://github.com/zyed-110",
     live_demo: "#",
-    tech_stack: ["Python", "JavaScript", "HTML5", "CSS3"],
+    tech_stack: ["JavaScript", "Python", "HTML5", "CSS3", "Web Speech API"],
     libraries: ["Web Speech API", "UI Animations"],
     database: ["Local State"],
     tools: ["VS Code", "Git"],
@@ -59,12 +59,12 @@ const PROJECTS_DATA = [
   },
   {
     name: "Library Management System",
-    short_desc: "Robust console-based database architecture managing complex library records, secure borrowing transactions, and admin parameters.",
+    short_desc: "Designed a robust, object-oriented console application using Python. Implemented a custom file I/O based JSON database architecture for managing complex entity relationships, secure transactions, and role-based access control.",
     status: "STABLE",
     version: "v1.0.0",
     github: "https://github.com/zyed-110/Library-Management-System",
     live_demo: "#",
-    tech_stack: ["Python"],
+    tech_stack: ["Python", "JSON DB", "OOP"],
     libraries: ["Object-Oriented Programming (OOP)"],
     database: ["JSON DB", "File I/O"],
     tools: ["Console CLI", "Git"],
@@ -413,7 +413,81 @@ function renderConsoleProject(index) {
   
   const p = PROJECTS_DATA[index];
   currentSlideIndex = 0;
+  const techStackHTML = p.tech_stack.map(sk => `<span class="tech-chip">${sk}</span>`).join('');
   
+  // Format the tools/libraries/DB lists
+  const buildList = (title, items) => {
+    if (!items || items.length === 0) return '';
+    return `<li><strong>${title}:</strong> ${items.join(', ')}</li>`;
+  };
+
+  const projectDetailsHTML = `
+    <li><strong>Tech Stack:</strong> ${p.tech_stack.join(', ')}</li>
+    ${buildList("Libraries/APIs", p.libraries)}
+    ${buildList("Databases", p.database)}
+    ${buildList("Tools & Deployment", p.tools)}
+  `;
+
+  const githubBtn = p.github ? `<a href="${p.github}" target="_blank" class="btn-premium-primary">View GitHub <i class="fa-brands fa-github"></i></a>` : '';
+  const liveDemoBtn = p.live_demo && p.live_demo !== "#" ? `<a href="${p.live_demo}" target="_blank" class="btn-premium-secondary">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : '';
+  const visualsBtn = `<button onclick="openVisualsOverlay(${index})" class="btn-premium-outline">Project Visuals <i class="fa-solid fa-image"></i></button>`;
+
+  workspace.innerHTML = `
+    <div class="project-details" id="active-project-details">
+      <!-- Local Overlay Modal -->
+      <div class="visuals-overlay-backdrop" id="visuals-overlay-backdrop" onclick="closeVisualsOverlay()"></div>
+      <div class="visuals-overlay-panel" id="visuals-overlay-panel">
+        <div class="visuals-overlay-header">
+          <h3 id="visuals-overlay-title">Project Visuals</h3>
+          <button class="modal-close" onclick="closeVisualsOverlay()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="visuals-overlay-content" id="visuals-overlay-content">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <div class="project-details-grid premium-project-grid" style="grid-template-columns: 1fr;">
+        <div class="project-details-text">
+          <h3>${p.name}</h3>
+          <p class="project-desc">${p.short_desc}</p>
+          
+          <div class="project-tech-stack">
+            <h4 class="tech-stack-title">Tech Stack</h4>
+            <div class="tech-chip-container">
+              ${techStackHTML}
+            </div>
+          </div>
+
+          <div class="project-achievements tech-specs">
+            <h4>Technical Environment</h4>
+            <ul class="tech-specs-list">
+              ${projectDetailsHTML}
+            </ul>
+          </div>
+          
+          <div class="project-console-links" style="margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap;">
+            ${githubBtn}
+            ${visualsBtn}
+            ${liveDemoBtn}
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  `;
+}
+
+window.openVisualsOverlay = function(index) {
+  const p = PROJECTS_DATA[index];
+  if (!p) return;
+  
+  const contentDiv = document.getElementById('visuals-overlay-content');
+  const titleEl = document.getElementById('visuals-overlay-title');
+  if (!contentDiv || !titleEl) return;
+  
+  titleEl.innerText = p.name + " Visuals";
+  
+  currentSlideIndex = 0;
   let carouselSlides = '';
   let carouselDots = '';
   
@@ -441,72 +515,98 @@ function renderConsoleProject(index) {
     }
   });
   
-  const techStackHTML = p.tech_stack.map(sk => `<span>${sk}</span>`).join('');
   const navArrows = p.media.length > 1 ? `
     <button class="swipe-nav-btn swipe-prev" onclick="navigateSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
     <button class="swipe-nav-btn swipe-next" onclick="navigateSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
   ` : '';
   const mediaCounter = p.media.length > 1 ? `<div class="media-counter"><span id="slide-current">1</span> / ${p.media.length}</div>` : '';
   
-  // Format the tools/libraries/DB lists
-  const buildList = (title, items) => {
-    if (!items || items.length === 0) return '';
-    return `<li><strong>${title}:</strong> ${items.join(', ')}</li>`;
-  };
-
-  const projectDetailsHTML = `
-    <li><strong>Tech Stack:</strong> ${p.tech_stack.join(', ')}</li>
-    ${buildList("Libraries/APIs", p.libraries)}
-    ${buildList("Databases", p.database)}
-    ${buildList("Tools & Deployment", p.tools)}
-  `;
-
-  const githubBtn = p.github ? `<a href="${p.github}" target="_blank" class="btn-premium-primary">View GitHub <i class="fa-brands fa-github"></i></a>` : '';
-  const liveDemoBtn = p.live_demo && p.live_demo !== "#" ? `<a href="${p.live_demo}" target="_blank" class="btn-premium-secondary">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : '';
-
-  workspace.innerHTML = `
-    <div class="project-details" id="active-project-details">
-      <div class="project-details-grid premium-project-grid">
-        
-        <div class="project-details-visual">
-          <div class="media-card premium-media-card" id="media-card-container">
-            <div class="media-carousel-track" id="media-carousel-track">
-              ${carouselSlides}
-            </div>
-            ${navArrows}
-            ${mediaCounter}
-            <div class="media-carousel-dots" id="media-carousel-dots">
-              ${carouselDots}
-            </div>
-          </div>
+  contentDiv.innerHTML = `
+    <div class="project-details-visual" style="width: 100%; height: 100%;">
+      <div class="media-card premium-media-card" id="media-card-container">
+        <div class="media-carousel-track" id="media-carousel-track">
+          ${carouselSlides}
         </div>
-
-        <div class="project-details-text">
-          <h3>${p.name}</h3>
-          <p class="project-desc">${p.short_desc}</p>
-          
-          <div class="card-skills">
-            ${techStackHTML}
-          </div>
-
-          <div class="project-achievements tech-specs">
-            <h4>Technical Environment</h4>
-            <ul style="list-style-type: disc; margin-left: 20px; line-height: 1.8;">
-              ${projectDetailsHTML}
-            </ul>
-          </div>
-          
-          <div class="project-console-links" style="margin-top: 25px;">
-            ${githubBtn}
-            ${liveDemoBtn}
-          </div>
+        ${navArrows}
+        ${mediaCounter}
+        <div class="media-carousel-dots" id="media-carousel-dots">
+          ${carouselDots}
         </div>
-        
       </div>
     </div>
   `;
   
+  document.getElementById('visuals-overlay-backdrop').style.display = 'block';
+  document.getElementById('visuals-overlay-panel').style.display = 'flex';
+  
+  // Animation
+  const isMobile = window.innerWidth <= 768;
+  anime({
+    targets: '#visuals-overlay-backdrop',
+    opacity: [0, 1],
+    duration: 300,
+    easing: 'easeOutQuad'
+  });
+  
+  if (isMobile) {
+    anime({
+      targets: '#visuals-overlay-panel',
+      translateY: ['100%', '0%'],
+      duration: 500,
+      easing: 'easeOutExpo'
+    });
+  } else {
+    anime({
+      targets: '#visuals-overlay-panel',
+      translateX: ['100%', '0%'],
+      duration: 500,
+      easing: 'easeOutExpo'
+    });
+  }
+  
   initSwipeEvents();
+  
+  // Try to load first media immediately
+  const firstVideo = contentDiv.querySelector('.media-slide.active video');
+  if (firstVideo) loadVideo(firstVideo);
+};
+
+window.closeVisualsOverlay = function() {
+  const isMobile = window.innerWidth <= 768;
+  
+  anime({
+    targets: '#visuals-overlay-backdrop',
+    opacity: 0,
+    duration: 300,
+    easing: 'easeInQuad',
+    complete: () => {
+      document.getElementById('visuals-overlay-backdrop').style.display = 'none';
+    }
+  });
+  
+  if (isMobile) {
+    anime({
+      targets: '#visuals-overlay-panel',
+      translateY: ['0%', '100%'],
+      duration: 400,
+      easing: 'easeInExpo',
+      complete: () => {
+        document.getElementById('visuals-overlay-panel').style.display = 'none';
+        document.getElementById('visuals-overlay-content').innerHTML = ''; // Clean up video memory
+      }
+    });
+  } else {
+    anime({
+      targets: '#visuals-overlay-panel',
+      translateX: ['0%', '100%'],
+      duration: 400,
+      easing: 'easeInExpo',
+      complete: () => {
+        document.getElementById('visuals-overlay-panel').style.display = 'none';
+        document.getElementById('visuals-overlay-content').innerHTML = '';
+      }
+    });
+  }
 }
 
 window.goToSlide = function(idx) {
