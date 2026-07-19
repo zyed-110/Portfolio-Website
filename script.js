@@ -477,7 +477,7 @@ function renderConsoleProject(index) {
         </div>
       </button>
     ` : '';
-    const mediaCounter = p.media.length > 1 ? `<div class="media-counter"><span id="slide-current">1</span> / ${p.media.length}</div>` : '';
+    const mediaCounter = '';
     
     mediaHTML = `
       <div class="inline-media-container">

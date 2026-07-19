@@ -3683,18 +3683,7 @@ html.light-theme .inline-media-container .nav-arrow-btn:before {
   transform: scale(1.2);
 }
 
-.inline-media-container .media-counter {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  z-index: 5;
-}
+
 
 /* Liquid Metal Flowing Border Effect */
 @property --angle {
