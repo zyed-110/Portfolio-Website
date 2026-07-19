@@ -1076,7 +1076,7 @@ main {
   padding: 40px;
   color: #e2e8f0;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Prevent clipping of images */
 }
 
 /* Project detail panels */
@@ -2430,7 +2430,7 @@ footer p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 @media(max-width: 900px) {
@@ -3481,88 +3481,341 @@ body {
   line-height: 1.7;
 }
 
-/* Visuals Overlay Modal (Local to project-details) */
+/* Inline Project Media CSS */
 .project-details {
   position: relative;
   overflow: hidden;
   border-radius: inherit;
 }
+.premium-project-grid.media-active {
+  grid-template-columns: 1fr 1.2fr; /* Text on left, Media on right */
+}
 
-.visuals-overlay-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
+.project-details-media {
+  height: 100%;
   width: 100%;
-  height: 100%;
-  background: rgba(6, 7, 10, 0.7);
-  backdrop-filter: blur(8px);
-  z-index: 10;
-  display: none;
+}
+
+.inline-media-container {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: visible; /* Prevent clipping */
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.inline-media-container .media-carousel-track {
+  width: 100%;
+  position: relative;
+  display: grid; /* Use grid to stack slides naturally */
+}
+
+.inline-slide {
+  position: relative !important; /* Override .media-slide */
+  height: auto !important; /* Override .media-slide */
+  grid-area: 1 / 1; /* All slides stack in the same grid cell */
+  width: 100%;
   opacity: 0;
-}
-
-.visuals-overlay-panel {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background-color: var(--bg-dark);
-  border-left: 1px solid var(--border-color);
-  z-index: 11;
-  display: none;
-  flex-direction: column;
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-  transform: translateX(100%);
-}
-
-.visuals-overlay-header {
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.5s ease;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.visuals-overlay-header h3 {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--text-main);
-  margin: 0;
-}
-
-.modal-close {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.modal-close:hover {
-  color: var(--accent-orange);
-  transform: scale(1.1);
-}
-
-.visuals-overlay-content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.inline-slide.active {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 2;
+}
+
+.inline-slide img.inline-img,
+.inline-slide video.inline-video {
+  max-width: 100%;
+  height: auto;
+  max-height: 45vh; /* Shrink size as requested */
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 @media (max-width: 900px) {
-  .visuals-overlay-panel {
-    width: 100%;
-    height: 70%;
-    top: auto;
-    bottom: 0;
-    border-left: none;
-    border-top: 1px solid var(--border-color);
-    border-radius: 20px 20px 0 0;
-    transform: translateY(100%);
+  .premium-project-grid.media-active {
+    grid-template-columns: 1fr;
   }
+  
+  .inline-media-container {
+    height: max-content; /* Allow natural height expansion */
+  }
+}
+
+/* Custom Animated Arrow Buttons */
+.inline-media-container .nav-arrow-btn {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  overflow: hidden;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  z-index: 10;
+}
+
+.inline-media-container .nav-arrow-btn.swipe-prev {
+  left: 10px;
+}
+
+.inline-media-container .nav-arrow-btn.swipe-next {
+  right: 10px;
+}
+
+.inline-media-container .nav-arrow-btn:before,
+.inline-media-container .nav-arrow-btn:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 7px;
+}
+
+.inline-media-container .nav-arrow-btn:before {
+  border: 4px solid #f0eeef;
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.inline-media-container .nav-arrow-btn:after {
+  border: 4px solid var(--accent-cyan);
+  transform: scale(1.3);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+.inline-media-container .nav-arrow-btn:hover:before,
+.inline-media-container .nav-arrow-btn:focus:before {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.inline-media-container .nav-arrow-btn:hover:after,
+.inline-media-container .nav-arrow-btn:focus:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.inline-media-container .nav-arrow-box {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Base Arrow styling */
+.inline-media-container .nav-arrow-elem {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 17px 18px 0 18px;
+  fill: #f0eeef;
+}
+
+html.light-theme .inline-media-container .nav-arrow-elem {
+  fill: #333;
+}
+html.light-theme .inline-media-container .nav-arrow-btn:before {
+  border-color: #333;
+}
+
+/* Previous Arrow (Flows left) */
+.inline-media-container .nav-arrow-btn.prev .nav-arrow-elem {
+  transform: rotate(180deg);
+}
+
+.inline-media-container .nav-arrow-btn.prev:hover .nav-arrow-box,
+.inline-media-container .nav-arrow-btn.prev:focus .nav-arrow-box {
+  transition: 0.4s;
+  transform: translateX(-56px);
+}
+
+/* Next Arrow (Flows right) */
+.inline-media-container .nav-arrow-btn.next .nav-arrow-box {
+  left: -56px; /* Start shifted left so the second arrow is visible in the box */
+}
+
+.inline-media-container .nav-arrow-btn.next .nav-arrow-elem {
+  transform: rotate(0deg);
+}
+
+.inline-media-container .nav-arrow-btn.next:hover .nav-arrow-box,
+.inline-media-container .nav-arrow-btn.next:focus .nav-arrow-box {
+  transition: 0.4s;
+  transform: translateX(56px);
+}
+
+.inline-media-container .media-carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.inline-media-container .carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.inline-media-container .carousel-dot.active {
+  background: var(--accent-cyan);
+  transform: scale(1.2);
+}
+
+.inline-media-container .media-counter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  z-index: 5;
+}
+
+/* Liquid Metal Flowing Border Effect */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.nav-anim-btn {
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 30px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Perfect circle for icon */
+  text-decoration: none;
+  background-color: transparent !important;
+  overflow: hidden;
+  color: var(--text-main);
+  min-width: 44px;
+  height: 44px;
+}
+
+.nav-anim-btn .nav-icon {
+  position: relative;
+  z-index: 10 !important;
+  pointer-events: none;
+  font-size: 1.1rem;
+}
+
+.nav-anim-btn .nav-link-text {
+  position: relative;
+  z-index: 10 !important;
+  pointer-events: none;
+  display: inline-block !important; /* Ensure DOM presence */
+  max-width: 0; /* Hide initially */
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  transition: max-width 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
+}
+
+/* Expanding hover effect */
+.nav-anim-btn:hover {
+  padding: 10px 20px; /* Expand padding */
+  color: #fff !important;
+  transform: scale(1.05);
+}
+
+html.light-theme .nav-anim-btn:hover {
+  color: #000 !important;
+}
+
+.nav-anim-btn:hover .nav-link-text {
+  max-width: 150px; /* Reveal text */
+  opacity: 1;
+  margin-left: 10px; /* Space between icon and text */
+}
+
+/* Inner pill fill (Base background) */
+.nav-anim-btn::before {
+  content: '';
+  position: absolute;
+  inset: 1px; /* Inner spacing */
+  border-radius: 30px;
+  background: var(--bg-nav);
+  z-index: -1;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+html.light-theme .nav-anim-btn::before {
+  background: #f0f2f5;
+}
+
+/* The flowing liquid border */
+.nav-anim-btn::after {
+  content: '';
+  position: absolute;
+  inset: -2px; /* Border thickness */
+  border-radius: 30px;
+  background: conic-gradient(from var(--angle, 0deg), transparent 0%, rgba(255,255,255,0.9) 15%, #a855f7 30%, transparent 45%);
+  z-index: -2;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+.nav-anim-btn:hover::before,
+.nav-anim-btn:hover::after {
+  opacity: 1;
+}
+
+.nav-anim-btn:hover::after {
+  animation: spin-metal 2s linear infinite;
+}
+
+@keyframes spin-metal {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+/* Active State Styles to prevent icon disappearance and highlight the active section */
+.nav-anim-btn.active {
+  background: rgba(168, 85, 247, 0.15) !important;
+  box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.2);
+}
+
+.nav-anim-btn.active .nav-icon {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+  opacity: 1 !important;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+html.light-theme .nav-anim-btn.active .nav-icon {
+  color: #a855f7;
+  text-shadow: none;
 }

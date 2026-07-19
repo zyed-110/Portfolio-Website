@@ -36,8 +36,8 @@ const PROJECTS_DATA = [
     database: ["Local File System"],
     tools: ["VS Code", "Git", "GitHub"],
     media: [
-      { type: "image", src: "Screenshots/Image recognition/ID1.png" },
-      { type: "image", src: "Screenshots/Image recognition/ID.png" }
+      { type: "image", src: "Screenshots/Image recogonition/ID1.png" },
+      { type: "image", src: "Screenshots/Image recogonition/ID.png" }
     ]
   },
   {
@@ -421,33 +421,82 @@ function renderConsoleProject(index) {
     return `<li><strong>${title}:</strong> ${items.join(', ')}</li>`;
   };
 
-  const projectDetailsHTML = `
+  const projectDetailsHTMLLeft = `
     <li><strong>Tech Stack:</strong> ${p.tech_stack.join(', ')}</li>
     ${buildList("Libraries/APIs", p.libraries)}
+  `;
+  
+  const projectDetailsHTMLRight = `
     ${buildList("Databases", p.database)}
     ${buildList("Tools & Deployment", p.tools)}
   `;
 
   const githubBtn = p.github ? `<a href="${p.github}" target="_blank" class="btn-premium-primary">View GitHub <i class="fa-brands fa-github"></i></a>` : '';
   const liveDemoBtn = p.live_demo && p.live_demo !== "#" ? `<a href="${p.live_demo}" target="_blank" class="btn-premium-secondary">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : '';
-  const visualsBtn = `<button onclick="openVisualsOverlay(${index})" class="btn-premium-outline">Project Visuals <i class="fa-solid fa-image"></i></button>`;
+
+  let carouselSlides = '';
+  let carouselDots = '';
+  let mediaHTML = '';
+  
+  if (p.media && p.media.length > 0) {
+    p.media.forEach((item, idx) => {
+      const isActive = idx === 0 ? 'active' : '';
+      carouselDots += `<span class="carousel-dot ${isActive}" data-slide="${idx}" onclick="goToSlide(${idx})"></span>`;
+      
+      if (item.type === 'video') {
+        carouselSlides += `
+          <div class="media-slide inline-slide ${isActive}" data-index="${idx}" data-type="video">
+            <div class="video-loader-overlay" id="video-loader-${idx}">
+              <div class="loader-svg-container">${VIDEO_LOADER_SVG}</div>
+              <span class="loader-text">LOADING_MEDIA...</span>
+            </div>
+            <video class="slide-video inline-video" data-src="${item.src}" preload="none" controls playsinline muted>
+              <source data-src="${item.src}" type="video/mp4">
+            </video>
+            <div class="video-play-badge"><i class="fa-solid fa-play"></i> VIDEO</div>
+          </div>`;
+      } else {
+        carouselSlides += `
+          <div class="media-slide inline-slide ${isActive}" data-index="${idx}" data-type="image">
+            <img class="inline-img" src="${item.src}" alt="${p.name}" onerror="this.src='https://placehold.co/600x400/13141c/a855f7?text=${encodeURIComponent(p.name)}';">
+          </div>`;
+      }
+    });
+    
+    const navArrows = p.media.length > 1 ? `
+      <button class="nav-arrow-btn swipe-prev prev" onclick="navigateSlide(-1)">
+        <div class="nav-arrow-box">
+          <span class="nav-arrow-elem"><svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path></svg></span>
+          <span class="nav-arrow-elem"><svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path></svg></span>
+        </div>
+      </button>
+      <button class="nav-arrow-btn swipe-next next" onclick="navigateSlide(1)">
+        <div class="nav-arrow-box">
+          <span class="nav-arrow-elem"><svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path></svg></span>
+          <span class="nav-arrow-elem"><svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path></svg></span>
+        </div>
+      </button>
+    ` : '';
+    const mediaCounter = p.media.length > 1 ? `<div class="media-counter"><span id="slide-current">1</span> / ${p.media.length}</div>` : '';
+    
+    mediaHTML = `
+      <div class="inline-media-container">
+        <div class="media-carousel-track" id="media-carousel-track">
+          ${carouselSlides}
+        </div>
+        ${navArrows}
+        ${mediaCounter}
+        <div class="media-carousel-dots" id="media-carousel-dots">
+          ${carouselDots}
+        </div>
+      </div>
+    `;
+  }
 
   workspace.innerHTML = `
     <div class="project-details" id="active-project-details">
-      <!-- Local Overlay Modal -->
-      <div class="visuals-overlay-backdrop" id="visuals-overlay-backdrop" onclick="closeVisualsOverlay()"></div>
-      <div class="visuals-overlay-panel" id="visuals-overlay-panel">
-        <div class="visuals-overlay-header">
-          <h3 id="visuals-overlay-title">Project Visuals</h3>
-          <button class="modal-close" onclick="closeVisualsOverlay()"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="visuals-overlay-content" id="visuals-overlay-content">
-          <!-- Injected via JS -->
-        </div>
-      </div>
-
-      <div class="project-details-grid premium-project-grid" style="grid-template-columns: 1fr;">
-        <div class="project-details-text">
+      <div class="project-details-grid premium-project-grid ${mediaHTML ? 'media-active' : ''}" id="project-details-grid">
+        <div class="project-details-text" id="project-text-col">
           <h3>${p.name}</h3>
           <p class="project-desc">${p.short_desc}</p>
           
@@ -461,153 +510,44 @@ function renderConsoleProject(index) {
           <div class="project-achievements tech-specs">
             <h4>Technical Environment</h4>
             <ul class="tech-specs-list">
-              ${projectDetailsHTML}
+              ${projectDetailsHTMLLeft}
             </ul>
           </div>
           
           <div class="project-console-links" style="margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap;">
             ${githubBtn}
-            ${visualsBtn}
             ${liveDemoBtn}
           </div>
         </div>
         
-      </div>
-    </div>
-  `;
-}
-
-window.openVisualsOverlay = function(index) {
-  const p = PROJECTS_DATA[index];
-  if (!p) return;
-  
-  const contentDiv = document.getElementById('visuals-overlay-content');
-  const titleEl = document.getElementById('visuals-overlay-title');
-  if (!contentDiv || !titleEl) return;
-  
-  titleEl.innerText = p.name + " Visuals";
-  
-  currentSlideIndex = 0;
-  let carouselSlides = '';
-  let carouselDots = '';
-  
-  p.media.forEach((item, idx) => {
-    const isActive = idx === 0 ? 'active' : '';
-    carouselDots += `<span class="carousel-dot ${isActive}" data-slide="${idx}" onclick="goToSlide(${idx})"></span>`;
-    
-    if (item.type === 'video') {
-      carouselSlides += `
-        <div class="media-slide ${isActive}" data-index="${idx}" data-type="video">
-          <div class="video-loader-overlay" id="video-loader-${idx}">
-            <div class="loader-svg-container">${VIDEO_LOADER_SVG}</div>
-            <span class="loader-text">LOADING_MEDIA...</span>
+        ${mediaHTML ? `
+        <div class="project-details-media" id="project-media-col" style="display: block; opacity: 1;">
+          ${mediaHTML}
+          
+          ${projectDetailsHTMLRight.trim() ? `
+          <div class="project-achievements tech-specs" style="margin-top: 20px;">
+            <ul class="tech-specs-list">
+              ${projectDetailsHTMLRight}
+            </ul>
           </div>
-          <video class="slide-video" data-src="${item.src}" preload="none" controls playsinline muted>
-            <source data-src="${item.src}" type="video/mp4">
-          </video>
-          <div class="video-play-badge"><i class="fa-solid fa-play"></i> VIDEO</div>
-        </div>`;
-    } else {
-      carouselSlides += `
-        <div class="media-slide ${isActive}" data-index="${idx}" data-type="image">
-          <img src="${item.src}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/13141c/a855f7?text=${encodeURIComponent(p.name)}';">
-        </div>`;
-    }
-  });
-  
-  const navArrows = p.media.length > 1 ? `
-    <button class="swipe-nav-btn swipe-prev" onclick="navigateSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
-    <button class="swipe-nav-btn swipe-next" onclick="navigateSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
-  ` : '';
-  const mediaCounter = p.media.length > 1 ? `<div class="media-counter"><span id="slide-current">1</span> / ${p.media.length}</div>` : '';
-  
-  contentDiv.innerHTML = `
-    <div class="project-details-visual" style="width: 100%; height: 100%;">
-      <div class="media-card premium-media-card" id="media-card-container">
-        <div class="media-carousel-track" id="media-carousel-track">
-          ${carouselSlides}
-        </div>
-        ${navArrows}
-        ${mediaCounter}
-        <div class="media-carousel-dots" id="media-carousel-dots">
-          ${carouselDots}
-        </div>
+          ` : ''}
+        </div>` : ''}
       </div>
     </div>
   `;
   
-  document.getElementById('visuals-overlay-backdrop').style.display = 'block';
-  document.getElementById('visuals-overlay-panel').style.display = 'flex';
-  
-  // Animation
-  const isMobile = window.innerWidth <= 768;
-  anime({
-    targets: '#visuals-overlay-backdrop',
-    opacity: [0, 1],
-    duration: 300,
-    easing: 'easeOutQuad'
-  });
-  
-  if (isMobile) {
-    anime({
-      targets: '#visuals-overlay-panel',
-      translateY: ['100%', '0%'],
-      duration: 500,
-      easing: 'easeOutExpo'
-    });
-  } else {
-    anime({
-      targets: '#visuals-overlay-panel',
-      translateX: ['100%', '0%'],
-      duration: 500,
-      easing: 'easeOutExpo'
-    });
-  }
-  
-  initSwipeEvents();
-  
-  // Try to load first media immediately
-  const firstVideo = contentDiv.querySelector('.media-slide.active video');
-  if (firstVideo) loadVideo(firstVideo);
-};
-
-window.closeVisualsOverlay = function() {
-  const isMobile = window.innerWidth <= 768;
-  
-  anime({
-    targets: '#visuals-overlay-backdrop',
-    opacity: 0,
-    duration: 300,
-    easing: 'easeInQuad',
-    complete: () => {
-      document.getElementById('visuals-overlay-backdrop').style.display = 'none';
-    }
-  });
-  
-  if (isMobile) {
-    anime({
-      targets: '#visuals-overlay-panel',
-      translateY: ['0%', '100%'],
-      duration: 400,
-      easing: 'easeInExpo',
-      complete: () => {
-        document.getElementById('visuals-overlay-panel').style.display = 'none';
-        document.getElementById('visuals-overlay-content').innerHTML = ''; // Clean up video memory
-      }
-    });
-  } else {
-    anime({
-      targets: '#visuals-overlay-panel',
-      translateX: ['0%', '100%'],
-      duration: 400,
-      easing: 'easeInExpo',
-      complete: () => {
-        document.getElementById('visuals-overlay-panel').style.display = 'none';
-        document.getElementById('visuals-overlay-content').innerHTML = '';
-      }
-    });
+  if (mediaHTML) {
+    initSwipeEvents();
+    // Load first media if video
+    const firstVideo = workspace.querySelector('.media-slide.active video');
+    if (firstVideo) loadVideo(firstVideo);
   }
 }
+
+// Keeping goToSlide and navigateSlide exactly as they are below...
+window.toggleVisualsInline = function(index) {
+  // Deprecated, logic moved to renderConsoleProject
+};
 
 window.goToSlide = function(idx) {
   const slides = document.querySelectorAll('#media-carousel-track .media-slide');

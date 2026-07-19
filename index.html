@@ -63,6 +63,17 @@
 </head>
 
 <body>
+  <!-- Liquid Metal SVG Filter -->
+  <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="liquid-metal">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9" result="liquid" />
+        <feComposite in="SourceGraphic" in2="liquid" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+
   <!-- AI Minimalist Background -->
   <div class="ai-background-container">
     <div class="glowing-grid"></div>
