@@ -515,7 +515,7 @@ function renderConsoleProject(index) {
           </div>
           
           <div class="project-console-links" style="margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap;">
-            ${githubBtn}
+            ${!mediaHTML ? githubBtn : ''}
             ${liveDemoBtn}
           </div>
         </div>
@@ -525,12 +525,15 @@ function renderConsoleProject(index) {
           ${mediaHTML}
           
           ${projectDetailsHTMLRight.trim() ? `
-          <div class="project-achievements tech-specs" style="margin-top: 20px;">
+          <div class="project-achievements tech-specs" style="margin-top: 70px;">
             <ul class="tech-specs-list">
               ${projectDetailsHTMLRight}
             </ul>
           </div>
           ` : ''}
+          <div class="project-console-links" style="margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap;">
+            ${githubBtn}
+          </div>
         </div>` : ''}
       </div>
     </div>
