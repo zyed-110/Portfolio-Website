@@ -779,3 +779,4 @@ window.sendContact = function(method) {
   
   closeContactModal();
 };
+
