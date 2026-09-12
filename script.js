@@ -3,6 +3,37 @@
 // Projects Database
 const PROJECTS_DATA = [
   {
+    name: "EV — Personal AI Assistant",
+    short_desc: "Architected a real-time personal AI assistant utilizing Python, FastAPI, React, WebSockets, and Supabase. Implemented conversational voice interaction, persistent memory, intelligent model routing, and computer automation to enable EV to interact with applications, browsers, files, terminals, and development environments.",
+    status: "PROTOTYPE",
+    version: "v2.5.0",
+    github: "",
+    live_demo: "",
+    tech_stack: ["Python", "FastAPI", "React", "TypeScript", "Supabase", "WebSockets", "Selenium", "PyAutoGUI"],
+    ai_voice: ["Conversational AI", "Speech Recognition", "Text-to-Speech", "Model Routing", "Persistent Memory"],
+    automation: ["Selenium", "PyAutoGUI", "Browser Automation", "Filesystem & Terminal Control"],
+    database: ["Supabase PostgreSQL"],
+    tools: ["Git", "GitHub", "VS Code", "WebSockets"],
+    key_capabilities: [
+      "Real-time voice and text-based conversational interaction",
+      "Persistent conversation history, contextual memory, and user profiles",
+      "Intelligent model selection based on query complexity",
+      "Browser navigation, web search, and automated web interactions",
+      "Desktop application and filesystem automation",
+      "VS Code and terminal interaction for development workflows",
+      "Task execution through tool-based AI workflows",
+      "Voice interruption, response cancellation, and low-latency interaction",
+      "Permission-aware computer control and action verification"
+    ],
+    media: [
+      { type: "image", src: "Screenshots/EV Assistant/1.png" },
+      { type: "image", src: "Screenshots/EV Assistant/2.png" },
+      { type: "image", src: "Screenshots/EV Assistant/3.png" },
+      { type: "image", src: "Screenshots/EV Assistant/4.png" },
+      { type: "image", src: "Screenshots/EV Assistant/5.png" }
+    ]
+  },
+  {
     name: "AI Navigation System",
     short_desc: "Architected a real-time conversational navigation engine utilizing FastAPI, React Native, and PostgreSQL. Implemented dynamic routing algorithms via GIS APIs and integrated NLP-based speech synthesis for intelligent voice guidance.",
     status: "STABLE",
@@ -423,6 +454,8 @@ function renderConsoleProject(index) {
 
   const projectDetailsHTMLLeft = `
     <li><strong>Tech Stack:</strong> ${p.tech_stack.join(', ')}</li>
+    ${buildList("AI & Voice", p.ai_voice)}
+    ${buildList("Automation", p.automation)}
     ${buildList("Libraries/APIs", p.libraries)}
   `;
   
@@ -430,6 +463,19 @@ function renderConsoleProject(index) {
     ${buildList("Databases", p.database)}
     ${buildList("Tools & Deployment", p.tools)}
   `;
+
+  let capabilitiesHTML = '';
+  if (p.key_capabilities && p.key_capabilities.length > 0) {
+    const capsList = p.key_capabilities.map(cap => `<li><i class="fa-solid fa-check" style="color: var(--accent-cyan); margin-right: 8px;"></i>${cap}</li>`).join('');
+    capabilitiesHTML = `
+      <div class="project-capabilities tech-specs" style="margin-top: 25px;">
+        <h4>Key Capabilities</h4>
+        <ul class="tech-specs-list" style="list-style-type: none; padding-left: 0;">
+          ${capsList}
+        </ul>
+      </div>
+    `;
+  }
 
   const githubBtn = p.github ? `<a href="${p.github}" target="_blank" class="btn-premium-primary">View GitHub <i class="fa-brands fa-github"></i></a>` : '';
   const liveDemoBtn = p.live_demo && p.live_demo !== "#" ? `<a href="${p.live_demo}" target="_blank" class="btn-premium-secondary">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : '';
@@ -513,6 +559,7 @@ function renderConsoleProject(index) {
               ${projectDetailsHTMLLeft}
             </ul>
           </div>
+          ${capabilitiesHTML}
           
           <div class="project-console-links" style="margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap;">
             ${!mediaHTML ? githubBtn : ''}
