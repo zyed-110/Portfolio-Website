@@ -14,17 +14,7 @@ const PROJECTS_DATA = [
     automation: ["Selenium", "PyAutoGUI", "Browser Automation", "Filesystem & Terminal Control"],
     database: ["Supabase PostgreSQL"],
     tools: ["Git", "GitHub", "VS Code", "WebSockets"],
-    key_capabilities: [
-      "Real-time voice and text-based conversational interaction",
-      "Persistent conversation history, contextual memory, and user profiles",
-      "Intelligent model selection based on query complexity",
-      "Browser navigation, web search, and automated web interactions",
-      "Desktop application and filesystem automation",
-      "VS Code and terminal interaction for development workflows",
-      "Task execution through tool-based AI workflows",
-      "Voice interruption, response cancellation, and low-latency interaction",
-      "Permission-aware computer control and action verification"
-    ],
+
     media: [
       { type: "image", src: "Screenshots/EV Assistant/1.png" },
       { type: "image", src: "Screenshots/EV Assistant/2.png" },
