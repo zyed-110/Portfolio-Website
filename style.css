@@ -2581,91 +2581,64 @@ html.light-theme .glowing-grid {
   flex: 1;
 }
 
-.hero-pyramid-container {
+/* Hero Content Flex & Dotted Sphere */
+.hero-content-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-text-content {
+  flex: 1;
+}
+
+.hero-sphere-container {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.hero-sphere-container:active {
+  cursor: grabbing;
+}
+
+.hero-sphere-container canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 @media (max-width: 900px) {
   .hero-content-flex {
     flex-direction: column;
   }
-}
 
-/* User Provided Pyramid Loader CSS */
-.pyramid-loader {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  display: block;
-  transform-style: preserve-3d;
-  transform: rotateX(-20deg) scale(4.4);
-  margin: 0;
-}
-
-.wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  animation: spin 4s linear infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotateY(360deg);
+  .hero-sphere-container {
+    width: 360px;
+    height: 360px;
+    max-width: 95vw;
+    margin: 20px auto 0 auto;
   }
 }
 
-.pyramid-loader .wrapper .side {
-  width: 70px;
-  height: 70px;
-  /* you can choose any gradient or color you want */
-  /* background: radial-gradient( #2F2585 10%, #F028FD 70%, #2BDEAC 120%); */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  transform-origin: center top;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-
-.pyramid-loader .wrapper .side1 {
-  transform: rotateZ(-30deg) rotateY(90deg);
-  background: conic-gradient(#2BDEAC, #F028FD, #D8CCE6, #2F2585);
-}
-
-.pyramid-loader .wrapper .side2 {
-  transform: rotateZ(30deg) rotateY(90deg);
-  background: conic-gradient(#2F2585, #D8CCE6, #F028FD, #2BDEAC);
-}
-
-.pyramid-loader .wrapper .side3 {
-  transform: rotateX(30deg);
-  background: conic-gradient(#2F2585, #D8CCE6, #F028FD, #2BDEAC);
-}
-
-.pyramid-loader .wrapper .side4 {
-  transform: rotateX(-30deg);
-  background: conic-gradient(#2BDEAC, #F028FD, #D8CCE6, #2F2585);
-}
-
-.pyramid-loader .wrapper .shadow {
-  width: 60px;
-  height: 60px;
-  background: #8B5AD5;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  transform: rotateX(90deg) translateZ(-40px);
-  filter: blur(12px);
+@media (max-width: 480px) {
+  .hero-sphere-container {
+    width: 300px;
+    height: 300px;
+    max-width: 92vw;
+    margin: 10px auto 0 auto;
+  }
 }
 
 /* New SVG Switch CSS */
@@ -3293,15 +3266,7 @@ html.light-theme .glowing-grid {
   border-radius: 8px;
 }
 
-/* Fix Pyramid Loader scale overlapping on mobile */
 @media (max-width: 768px) {
-  .hero-pyramid-container {
-    transform: scale(0.4) !important;
-    /* Force scale down the massive loader */
-    margin-top: -60px;
-    margin-bottom: -60px;
-  }
-
   .tech-timeline {
     padding-left: 15px;
     /* Better padding for timeline on mobile */
@@ -3692,97 +3657,100 @@ html.light-theme .inline-media-container .nav-arrow-btn:before {
   inherits: false;
 }
 
-.nav-anim-btn {
-  position: relative;
-  z-index: 1;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 30px;
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  padding: 10px; /* Perfect circle for icon */
-  text-decoration: none;
-  background-color: transparent !important;
-  overflow: hidden;
-  color: var(--text-main);
-  min-width: 44px;
-  height: 44px;
-}
+/* Desktop Navigation - Expanding Hover Pill */
+@media (min-width: 769px) {
+  .nav-anim-btn {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 30px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Perfect circle for icon */
+    text-decoration: none;
+    background-color: transparent !important;
+    overflow: hidden;
+    color: var(--text-main);
+    min-width: 44px;
+    height: 44px;
+  }
 
-.nav-anim-btn .nav-icon {
-  position: relative;
-  z-index: 10 !important;
-  pointer-events: none;
-  font-size: 1.1rem;
-}
+  .nav-anim-btn .nav-icon {
+    position: relative;
+    z-index: 10 !important;
+    pointer-events: none;
+    font-size: 1.1rem;
+  }
 
-.nav-anim-btn .nav-link-text {
-  position: relative;
-  z-index: 10 !important;
-  pointer-events: none;
-  display: inline-block !important; /* Ensure DOM presence */
-  max-width: 0; /* Hide initially */
-  opacity: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  margin-left: 0;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  transition: max-width 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
-}
+  .nav-anim-btn .nav-link-text {
+    position: relative;
+    z-index: 10 !important;
+    pointer-events: none;
+    display: inline-block !important; /* Ensure DOM presence */
+    max-width: 0; /* Hide initially */
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    transition: max-width 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
+  }
 
-/* Expanding hover effect */
-.nav-anim-btn:hover {
-  padding: 10px 20px; /* Expand padding */
-  color: #fff !important;
-  transform: scale(1.05);
-}
+  /* Expanding hover effect */
+  .nav-anim-btn:hover {
+    padding: 10px 20px; /* Expand padding */
+    color: #fff !important;
+    transform: scale(1.05);
+  }
 
-html.light-theme .nav-anim-btn:hover {
-  color: #000 !important;
-}
+  html.light-theme .nav-anim-btn:hover {
+    color: #000 !important;
+  }
 
-.nav-anim-btn:hover .nav-link-text {
-  max-width: 150px; /* Reveal text */
-  opacity: 1;
-  margin-left: 10px; /* Space between icon and text */
-}
+  .nav-anim-btn:hover .nav-link-text {
+    max-width: 150px; /* Reveal text */
+    opacity: 1;
+    margin-left: 10px; /* Space between icon and text */
+  }
 
-/* Inner pill fill (Base background) */
-.nav-anim-btn::before {
-  content: '';
-  position: absolute;
-  inset: 1px; /* Inner spacing */
-  border-radius: 30px;
-  background: var(--bg-nav);
-  z-index: -1;
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.3s ease;
-}
+  /* Inner pill fill (Base background) */
+  .nav-anim-btn::before {
+    content: '';
+    position: absolute;
+    inset: 1px; /* Inner spacing */
+    border-radius: 30px;
+    background: var(--bg-nav);
+    z-index: -1;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+  }
 
-html.light-theme .nav-anim-btn::before {
-  background: #f0f2f5;
-}
+  html.light-theme .nav-anim-btn::before {
+    background: #f0f2f5;
+  }
 
-/* The flowing liquid border */
-.nav-anim-btn::after {
-  content: '';
-  position: absolute;
-  inset: -2px; /* Border thickness */
-  border-radius: 30px;
-  background: conic-gradient(from var(--angle, 0deg), transparent 0%, rgba(255,255,255,0.9) 15%, #a855f7 30%, transparent 45%);
-  z-index: -2;
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.3s ease;
-}
+  /* The flowing liquid border */
+  .nav-anim-btn::after {
+    content: '';
+    position: absolute;
+    inset: -2px; /* Border thickness */
+    border-radius: 30px;
+    background: conic-gradient(from var(--angle, 0deg), transparent 0%, rgba(255,255,255,0.9) 15%, #a855f7 30%, transparent 45%);
+    z-index: -2;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+  }
 
-.nav-anim-btn:hover::before,
-.nav-anim-btn:hover::after {
-  opacity: 1;
-}
+  .nav-anim-btn:hover::before,
+  .nav-anim-btn:hover::after {
+    opacity: 1;
+  }
 
-.nav-anim-btn:hover::after {
-  animation: spin-metal 2s linear infinite;
+  .nav-anim-btn:hover::after {
+    animation: spin-metal 2s linear infinite;
+  }
 }
 
 @keyframes spin-metal {
@@ -3807,4 +3775,137 @@ html.light-theme .nav-anim-btn::before {
 html.light-theme .nav-anim-btn.active .nav-icon {
   color: #a855f7;
   text-shadow: none;
+}
+
+/* =========================================================
+   Mobile Navigation - Dropdown with Icons & Visible Text
+   ========================================================= */
+@media (max-width: 768px) {
+  .ribbon-pill {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90vw;
+    border-radius: 24px;
+    padding: 12px 20px;
+    background: var(--bg-nav);
+    transition: all 0.4s ease;
+  }
+
+  .menu-toggle {
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .ribbon-pill.expanded .menu-toggle {
+    transform: rotate(180deg);
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 8px;
+    position: static;
+    height: auto;
+    background: transparent;
+    border: none;
+  }
+
+  .ribbon-pill.expanded .nav-links {
+    display: flex !important;
+  }
+
+  .nav-links li {
+    width: 100%;
+    display: block;
+  }
+
+  .nav-anim-btn {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 48px !important;
+    border-radius: 12px !important;
+    justify-content: flex-start !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+
+  html.light-theme .nav-anim-btn {
+    background: rgba(0, 0, 0, 0.03) !important;
+    border-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .nav-anim-btn .nav-icon {
+    width: 24px !important;
+    min-width: 24px !important;
+    text-align: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    margin-right: 14px !important;
+    display: inline-block !important;
+    transform: none !important;
+    color: var(--accent-cyan);
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .nav-anim-btn .nav-link-text {
+    display: inline-block !important;
+    max-width: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-left: 0 !important;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main) !important;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+
+  .nav-anim-btn:hover,
+  .nav-anim-btn:focus {
+    width: 100% !important;
+    transform: none !important;
+    padding: 12px 16px !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  .nav-anim-btn:hover .nav-icon {
+    transform: none !important;
+  }
+
+  .nav-anim-btn:hover .nav-link-text {
+    max-width: none !important;
+    opacity: 1 !important;
+  }
+
+  .nav-anim-btn.active {
+    background: rgba(6, 182, 212, 0.15) !important;
+    border-color: rgba(6, 182, 212, 0.4) !important;
+  }
+
+  .nav-anim-btn.active .nav-icon {
+    color: var(--accent-cyan) !important;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+  }
+
+  .nav-anim-btn.active .nav-link-text {
+    color: var(--accent-cyan) !important;
+    font-weight: 700;
+  }
+
+  .nav-anim-btn::before,
+  .nav-anim-btn::after {
+    display: none !important;
+  }
 }
