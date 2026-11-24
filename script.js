@@ -3,94 +3,89 @@
 // Projects Database
 const PROJECTS_DATA = [
   {
-    name: "EV — Personal AI Assistant",
-    short_desc: "Architected a real-time personal AI assistant utilizing Python, FastAPI, React, WebSockets, and Supabase. Implemented conversational voice interaction, persistent memory, intelligent model routing, and computer automation to enable EV to interact with applications, browsers, files, terminals, and development environments.",
+    name: "AI Navigation System",
+    short_desc: "Architected a real-time conversational navigation and location tracking engine utilizing FastAPI, React Native, and PostgreSQL. Implemented destination coordinate identification, geographic dataset processing, dynamic GIS route algorithms, and voice guidance.",
+    status: "STABLE",
+    version: "v1.0.4",
+    github: "https://github.com/zyed-110/AI-Navigation-System",
+    live_demo: "",
+    tech_stack: ["Python", "FastAPI", "React Native", "TypeScript", "PostgreSQL", "GIS APIs", "NLP"],
+    key_capabilities: [
+      "Intelligent destination and location identification",
+      "Location dataset containing destination names and geographic coordinates",
+      "Latitude and longitude coordinate processing and geofencing",
+      "Turn-by-turn navigation and live location tracking functionality"
+    ],
+    media: [
+      { type: "image", src: "Screenshots/AI Navigation/Navigator/WhatsApp Image 2026-07-17 at 4.48.12 PM.jpeg", caption: "Navigator View — Real-Time Turn-by-Turn Route Guidance" },
+      { type: "image", src: "Screenshots/AI Navigation/Navigator/WhatsApp Image 2026-07-17 at 4.48.13 PM.jpeg", caption: "Navigator View — Destination Coordinates & Geolocation Tracking" },
+      { type: "image", src: "Screenshots/AI Navigation/Navigator/WhatsApp Image 2026-07-17 at 4.48.14 PM.jpeg", caption: "Navigator View — Dynamic Route Calculation & Arrival Estimation" },
+      { type: "image", src: "Screenshots/AI Navigation/Admin/WhatsApp Image 2026-07-17 at 4.48.12 PM (1).jpeg", caption: "Admin Dashboard — Destination Dataset & Geographic Coordinate Hub" },
+      { type: "image", src: "Screenshots/AI Navigation/Guardian/WhatsApp Image 2026-07-17 at 4.48.13 PM (1).jpeg", caption: "Guardian Portal — Remote Location Telemetry & User Safety Monitoring" },
+      { type: "video", src: "Screenshots/AI Navigation/Navigator/Screenrecording_20260717_161823.mp4", caption: "Navigator App Demo — Live Interactive Route Navigation" },
+      { type: "video", src: "Screenshots/AI Navigation/Guardian/Screenrecording_20260717_162036.mp4", caption: "Guardian App Demo — Live User Tracking & Geofence Verification" },
+      { type: "video", src: "Screenshots/AI Navigation/Admin/Screenrecording_20260717_162300.mp4", caption: "Admin App Demo — Dataset Management & Route Config" }
+    ]
+  },
+  {
+    name: "NeuroCare AI",
+    short_desc: "Clinical machine learning screening platform for early Parkinson's disease and autism detection. Built with Python and Streamlit, featuring patient data management and longitudinal progress visualization.",
+    status: "PROTOTYPE",
+    version: "v1.0.0",
+    github: "",
+    live_demo: "",
+    tech_stack: ["Python", "Machine Learning", "Streamlit", "Scikit-Learn", "Pandas", "NumPy"],
+    key_capabilities: [
+      "Early Parkinson's disease and autism screening models",
+      "Machine learning-based risk assessment and prediction pipelines",
+      "Comprehensive patient information and clinical record management",
+      "Interactive patient progress tracking and longitudinal health visualization",
+      "Streamlit and Python-based rapid deployment interface"
+    ],
+    media: [
+      { type: "placeholder", title: "NeuroCare AI Diagnostic Dashboard", caption: "Early Parkinson's & Autism Screening ML Architecture with Patient Progress Tracking [Screenshots Coming Soon]" }
+    ]
+  },
+  {
+    name: "EV – Personal AI Assistant",
+    short_desc: "Architected a real-time personal AI assistant with conversational voice interaction, persistent context memory, intelligent multi-model routing, and operating system / browser automation.",
     status: "PROTOTYPE",
     version: "v2.5.0",
     github: "",
     live_demo: "",
     tech_stack: ["Python", "FastAPI", "React", "TypeScript", "Supabase", "WebSockets", "Selenium", "PyAutoGUI"],
-    ai_voice: ["Conversational AI", "Speech Recognition", "Text-to-Speech", "Model Routing", "Persistent Memory"],
-    automation: ["Selenium", "PyAutoGUI", "Browser Automation", "Filesystem & Terminal Control"],
-    database: ["Supabase PostgreSQL"],
-    tools: ["Git", "GitHub", "VS Code", "WebSockets"],
-
+    key_capabilities: [
+      "Conversational voice interaction with low-latency Speech-to-Text and Text-to-Speech",
+      "Persistent memory architecture with Supabase PostgreSQL state storage",
+      "Intelligent multi-model routing selecting optimal AI models based on query complexity",
+      "Browser and desktop automation using Selenium and PyAutoGUI",
+      "Application and terminal command orchestration"
+    ],
     media: [
-      { type: "image", src: "Screenshots/EV Assistant/1.png" },
-      { type: "image", src: "Screenshots/EV Assistant/2.png" },
-      { type: "image", src: "Screenshots/EV Assistant/3.png" },
-      { type: "image", src: "Screenshots/EV Assistant/4.png" },
-      { type: "image", src: "Screenshots/EV Assistant/5.png" }
+      { type: "image", src: "Screenshots/EV Assistant/1.png", caption: "EV Assistant — Core Voice & Command Architecture" },
+      { type: "image", src: "Screenshots/EV Assistant/2.png", caption: "EV Assistant — Real-Time Model Routing & Speech Processing" },
+      { type: "image", src: "Screenshots/EV Assistant/3.png", caption: "EV Assistant — Browser Automation & Application Control" },
+      { type: "image", src: "Screenshots/EV Assistant/4.png", caption: "EV Assistant — Persistent Context Memory & Supabase Backend" },
+      { type: "image", src: "Screenshots/EV Assistant/5.png", caption: "EV Assistant — Interactive Desktop Workflow Automation" }
     ]
   },
   {
-    name: "AI Navigation System",
-    short_desc: "Architected a real-time conversational navigation engine utilizing FastAPI, React Native, and PostgreSQL. Implemented dynamic routing algorithms via GIS APIs and integrated NLP-based speech synthesis for intelligent voice guidance.",
-    status: "STABLE",
-    version: "v1.0.4",
-    github: "https://github.com/zyed-110/AI-Navigation-System",
-    live_demo: "#",
-    tech_stack: ["Python", "FastAPI", "React Native", "TypeScript", "PostgreSQL", "GIS APIs"],
-    libraries: ["Speech Synthesis", "GIS APIs", "NLP"],
-    database: ["PostgreSQL"],
-    tools: ["Git", "GitHub", "Render", "Expo"],
-    media: [
-      { type: "image", src: "Screenshots/AI Navigation/Navigator/WhatsApp Image 2026-07-17 at 4.48.12 PM.jpeg" },
-      { type: "image", src: "Screenshots/AI Navigation/Navigator/WhatsApp Image 2026-07-17 at 4.48.13 PM.jpeg" },
-      { type: "image", src: "Screenshots/AI Navigation/Navigator/WhatsApp Image 2026-07-17 at 4.48.14 PM.jpeg" },
-      { type: "image", src: "Screenshots/AI Navigation/Admin/WhatsApp Image 2026-07-17 at 4.48.12 PM (1).jpeg" },
-      { type: "image", src: "Screenshots/AI Navigation/Guardian/WhatsApp Image 2026-07-17 at 4.48.13 PM (1).jpeg" },
-      { type: "video", src: "Screenshots/AI Navigation/Navigator/Screenrecording_20260717_161823.mp4" },
-      { type: "video", src: "Screenshots/AI Navigation/Guardian/Screenrecording_20260717_162036.mp4" },
-      { type: "video", src: "Screenshots/AI Navigation/Admin/Screenrecording_20260717_162300.mp4" }
-    ]
-  },
-  {
-    name: "Object Recognition System",
-    short_desc: "Developed a low-latency computer vision pipeline utilizing YOLOv8 and OpenCV. Optimized deep learning inference to process real-time video feeds for multi-class object detection across 80 COCO categories.",
-    status: "OPTIMIZED",
-    version: "v2.1.0",
-    github: "https://github.com/zyed-110/Image-Detection",
-    live_demo: "#",
-    tech_stack: ["Python", "YOLOv8", "OpenCV", "NumPy", "Deep Learning"],
-    libraries: ["YOLOv8", "OpenCV", "NumPy", "Deep Learning"],
-    database: ["Local File System"],
-    tools: ["VS Code", "Git", "GitHub"],
-    media: [
-      { type: "image", src: "Screenshots/Image recogonition/ID1.png" },
-      { type: "image", src: "Screenshots/Image recogonition/ID.png" }
-    ]
-  },
-  {
-    name: "Alice Voice Chatbot",
-    short_desc: "Engineered a voice-enabled AI agent leveraging the Web Speech API and modular state management. Designed asynchronous conversational flows and integrated custom UI visualizers using HTML5/CSS3 and Vanilla JS.",
-    status: "COMPLETED",
+    name: "TOYA – Water Delivery Application",
+    short_desc: "An on-demand water delivery logistics ecosystem comprising dedicated customer and driver mobile applications with real-time dispatch, location tracking, and OTP-verified delivery.",
+    status: "MOBILE SUITE",
     version: "v1.2.0",
-    github: "https://github.com/zyed-110",
-    live_demo: "#",
-    tech_stack: ["JavaScript", "Python", "HTML5", "CSS3", "Web Speech API"],
-    libraries: ["Web Speech API", "UI Animations"],
-    database: ["Local State"],
-    tools: ["VS Code", "Git"],
+    github: "",
+    live_demo: "",
+    tech_stack: ["React Native", "Node.js", "Python", "PostgreSQL", "Geolocation APIs"],
+    key_capabilities: [
+      "Customer and driver mobile applications with dedicated user workflows",
+      "Real-time order placement and instant driver acceptance queue",
+      "Location-based delivery tracking with live route updates",
+      "OTP-based delivery confirmation for secure, verified order handoffs",
+      "End-to-end payment workflow and automated order status management"
+    ],
     media: [
-      { type: "image", src: "Screenshots/Voice chatbot/Alice1.png" },
-      { type: "image", src: "Screenshots/Voice chatbot/Alice2.png" },
-      { type: "image", src: "Screenshots/Voice chatbot/Alice.png" }
-    ]
-  },
-  {
-    name: "Library Management System",
-    short_desc: "Designed a robust, object-oriented console application using Python. Implemented a custom file I/O based JSON database architecture for managing complex entity relationships, secure transactions, and role-based access control.",
-    status: "STABLE",
-    version: "v1.0.0",
-    github: "https://github.com/zyed-110/Library-Management-System",
-    live_demo: "#",
-    tech_stack: ["Python", "JSON DB", "OOP"],
-    libraries: ["Object-Oriented Programming (OOP)"],
-    database: ["JSON DB", "File I/O"],
-    tools: ["Console CLI", "Git"],
-    media: [
-      { type: "image", src: "https://placehold.co/600x400/13141c/ff4e00?text=Library+Management" }
+      { type: "placeholder", title: "TOYA Logistics Workflow", caption: "Customer & Driver Mobile Architecture with Real-Time Geolocation & OTP Handoff [Screenshots Coming Soon]" }
     ]
   }
 ];
@@ -108,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initCertToggle();
   initDottedSphere();
-  
+
   // Render initial project
   renderConsoleProject(activeProjectIndex);
 });
@@ -118,7 +113,7 @@ function initCertToggle() {
   const btn = document.getElementById('view-more-certs-btn');
   const hiddenContainer = document.getElementById('hidden-certs');
   if (!btn || !hiddenContainer) return;
-  
+
   btn.addEventListener('click', () => {
     hiddenContainer.classList.toggle('visible');
     if (hiddenContainer.classList.contains('visible')) {
@@ -133,7 +128,7 @@ function initCertToggle() {
 function initCursorGlow() {
   const glow = document.getElementById('cursor-glow');
   if (!glow) return;
-  
+
   window.addEventListener('mousemove', (e) => {
     glow.style.left = `${e.clientX}px`;
     glow.style.top = `${e.clientY}px`;
@@ -144,27 +139,27 @@ function initCursorGlow() {
 function initGridDots() {
   const gridContainer = document.getElementById('grid-dots');
   if (!gridContainer) return;
-  
+
   const cols = 25;
   const rows = 14;
   const dotCount = cols * rows;
-  
+
   gridContainer.style.gridTemplateColumns = `repeat(${cols}, 40px)`;
   gridContainer.style.gridTemplateRows = `repeat(${rows}, 40px)`;
   gridContainer.innerHTML = '';
-  
+
   for (let i = 0; i < dotCount; i++) {
     const dot = document.createElement('div');
     dot.classList.add('dot');
     dot.dataset.index = i;
     gridContainer.appendChild(dot);
   }
-  
+
   gridContainer.addEventListener('click', (e) => {
     if (!e.target.classList.contains('dot')) return;
-    
+
     const clickIndex = parseInt(e.target.dataset.index);
-    
+
     anime({
       targets: '#grid-dots .dot',
       scale: [
@@ -187,7 +182,7 @@ function initGridDots() {
       })
     });
   });
-  
+
   anime({
     targets: '#grid-dots .dot',
     scale: [
@@ -214,11 +209,11 @@ function initRobotBackgroundZoom() {
   window.addEventListener('scroll', () => {
     const scrollMax = document.documentElement.scrollHeight - window.innerHeight;
     if (scrollMax <= 0) return;
-    
+
     const fraction = window.scrollY / scrollMax;
     const zoomScale = 1 + fraction * 0.28;
     const translateY = fraction * -50;
-    
+
     robotImg.style.transform = `scale(${zoomScale}) translateY(${translateY}px)`;
   });
 }
@@ -226,24 +221,24 @@ function initRobotBackgroundZoom() {
 /* 3D Tilt Hover */
 function initCardTilts() {
   const cards = document.querySelectorAll('.spec-card, .cert-card-schematic');
-  
+
   cards.forEach(card => {
     card.style.transformStyle = 'preserve-3d';
-    
+
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left; 
-      const y = e.clientY - rect.top;  
-      
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      
+
       const tiltX = -(y - centerY) / 8;
       const tiltY = (x - centerX) / 8;
-      
+
       card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
     });
-    
+
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
     });
@@ -255,14 +250,14 @@ function initScrollspyAndNavbar() {
   const navbar = document.getElementById('navbar');
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-link, .nav-anim-btn');
-  
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-    
+
     let current = '';
     sections.forEach(sec => {
       const top = sec.offsetTop;
@@ -271,7 +266,7 @@ function initScrollspyAndNavbar() {
         current = sec.getAttribute('id');
       }
     });
-    
+
     navLinks.forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${current}`) {
@@ -284,16 +279,16 @@ function initScrollspyAndNavbar() {
 /* Smooth Fade In and Out */
 function initRevealOnScroll() {
   const elements = document.querySelectorAll('.scroll-reveal');
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      const isCard = entry.target.classList.contains('spec-card') || 
-                     entry.target.classList.contains('cert-card-schematic') || 
-                     entry.target.classList.contains('project-card') ||
-                     entry.target.classList.contains('console-box') ||
-                     entry.target.classList.contains('contact-terminal') ||
-                     entry.target.classList.contains('contact-specs');
-      
+      const isCard = entry.target.classList.contains('spec-card') ||
+        entry.target.classList.contains('cert-card-schematic') ||
+        entry.target.classList.contains('project-card') ||
+        entry.target.classList.contains('console-box') ||
+        entry.target.classList.contains('contact-terminal') ||
+        entry.target.classList.contains('contact-specs');
+
       if (entry.isIntersecting) {
         if (isCard) {
           anime.remove(entry.target);
@@ -324,7 +319,7 @@ function initRevealOnScroll() {
     threshold: 0.08,
     rootMargin: '0px 0px -40px 0px'
   });
-  
+
   elements.forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
@@ -332,14 +327,14 @@ function initRevealOnScroll() {
 }
 
 /* Console Project Switcher */
-window.switchConsoleProject = function(index) {
+window.switchConsoleProject = function (index) {
   if (index === activeProjectIndex) return;
-  
+
   document.querySelectorAll('.console-tab').forEach((tab, i) => {
     tab.classList.remove('active');
     if (i === index) tab.classList.add('active');
   });
-  
+
   const workspace = document.getElementById('active-project-details');
   anime({
     targets: workspace,
@@ -350,7 +345,7 @@ window.switchConsoleProject = function(index) {
     complete: () => {
       activeProjectIndex = index;
       renderConsoleProject(index);
-      
+
       anime({
         targets: workspace,
         opacity: [0, 1],
@@ -432,11 +427,11 @@ let swipeEndX = 0;
 function renderConsoleProject(index) {
   const workspace = document.getElementById('console-workspace');
   if (!workspace) return;
-  
+
   const p = PROJECTS_DATA[index];
   currentSlideIndex = 0;
   const techStackHTML = p.tech_stack.map(sk => `<span class="tech-chip">${sk}</span>`).join('');
-  
+
   // Format the tools/libraries/DB lists
   const buildList = (title, items) => {
     if (!items || items.length === 0) return '';
@@ -449,7 +444,7 @@ function renderConsoleProject(index) {
     ${buildList("Automation", p.automation)}
     ${buildList("Libraries/APIs", p.libraries)}
   `;
-  
+
   const projectDetailsHTMLRight = `
     ${buildList("Databases", p.database)}
     ${buildList("Tools & Deployment", p.tools)}
@@ -474,12 +469,12 @@ function renderConsoleProject(index) {
   let carouselSlides = '';
   let carouselDots = '';
   let mediaHTML = '';
-  
+
   if (p.media && p.media.length > 0) {
     p.media.forEach((item, idx) => {
       const isActive = idx === 0 ? 'active' : '';
       carouselDots += `<span class="carousel-dot ${isActive}" data-slide="${idx}" onclick="goToSlide(${idx})"></span>`;
-      
+
       if (item.type === 'video') {
         carouselSlides += `
           <div class="media-slide inline-slide ${isActive}" data-index="${idx}" data-type="video">
@@ -499,7 +494,7 @@ function renderConsoleProject(index) {
           </div>`;
       }
     });
-    
+
     const navArrows = p.media.length > 1 ? `
       <button class="nav-arrow-btn swipe-prev prev" onclick="navigateSlide(-1)">
         <div class="nav-arrow-box">
@@ -515,7 +510,7 @@ function renderConsoleProject(index) {
       </button>
     ` : '';
     const mediaCounter = '';
-    
+
     mediaHTML = `
       <div class="inline-media-container">
         <div class="media-carousel-track" id="media-carousel-track">
@@ -576,7 +571,7 @@ function renderConsoleProject(index) {
       </div>
     </div>
   `;
-  
+
   if (mediaHTML) {
     initSwipeEvents();
     // Load first media if video
@@ -586,37 +581,37 @@ function renderConsoleProject(index) {
 }
 
 // Keeping goToSlide and navigateSlide exactly as they are below...
-window.toggleVisualsInline = function(index) {
+window.toggleVisualsInline = function (index) {
   // Deprecated, logic moved to renderConsoleProject
 };
 
-window.goToSlide = function(idx) {
+window.goToSlide = function (idx) {
   const slides = document.querySelectorAll('#media-carousel-track .media-slide');
   const dots = document.querySelectorAll('#media-carousel-dots .carousel-dot');
   if (!slides.length || idx < 0 || idx >= slides.length) return;
-  
+
   const currentSlide = slides[currentSlideIndex];
   if (currentSlide && currentSlide.dataset.type === 'video') {
     const vid = currentSlide.querySelector('.slide-video');
     if (vid) vid.pause();
   }
-  
+
   slides.forEach(s => s.classList.remove('active'));
   dots.forEach(d => d.classList.remove('active'));
-  
+
   currentSlideIndex = idx;
   slides[idx].classList.add('active');
   dots[idx].classList.add('active');
-  
+
   const counter = document.getElementById('slide-current');
   if (counter) counter.textContent = idx + 1;
-  
+
   if (slides[idx].dataset.type === 'video') {
     loadVideoSlide(slides[idx], idx);
   }
 };
 
-window.navigateSlide = function(direction) {
+window.navigateSlide = function (direction) {
   const slides = document.querySelectorAll('#media-carousel-track .media-slide');
   if (!slides.length) return;
   let newIdx = currentSlideIndex + direction;
@@ -629,57 +624,57 @@ function loadVideoSlide(slideEl, idx) {
   const loader = document.getElementById(`video-loader-${idx}`);
   const video = slideEl.querySelector('.slide-video');
   const badge = slideEl.querySelector('.video-play-badge');
-  
+
   if (!video || !loader) return;
-  
+
   if (video.dataset.loaded === 'true') {
     loader.classList.add('hidden');
     if (badge) badge.classList.add('hidden');
-    video.play().catch(() => {});
+    video.play().catch(() => { });
     return;
   }
-  
+
   loader.classList.remove('hidden');
   if (badge) badge.classList.add('hidden');
-  
+
   if (video.getAttribute('src') !== video.dataset.src) {
     const source = video.querySelector('source');
     if (source) source.src = source.dataset.src;
     video.src = video.dataset.src;
     video.load();
   }
-  
+
   setTimeout(() => {
     loader.classList.add('hidden');
     video.dataset.loaded = 'true';
-    video.play().catch(() => {});
+    video.play().catch(() => { });
   }, 2000);
 }
 
 function initSwipeEvents() {
   const track = document.getElementById('media-carousel-track');
   if (!track) return;
-  
+
   track.addEventListener('touchstart', (e) => {
     swipeStartX = e.changedTouches[0].screenX;
   }, { passive: true });
-  
+
   track.addEventListener('touchend', (e) => {
     swipeEndX = e.changedTouches[0].screenX;
     handleSwipe();
   }, { passive: true });
-  
+
   let isDragging = false;
   track.addEventListener('mousedown', (e) => {
     isDragging = true;
     swipeStartX = e.screenX;
     track.style.cursor = 'grabbing';
   });
-  
+
   track.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
   });
-  
+
   track.addEventListener('mouseup', (e) => {
     if (!isDragging) return;
     isDragging = false;
@@ -687,7 +682,7 @@ function initSwipeEvents() {
     track.style.cursor = 'grab';
     handleSwipe();
   });
-  
+
   track.addEventListener('mouseleave', () => {
     isDragging = false;
     track.style.cursor = 'grab';
@@ -698,7 +693,7 @@ function handleSwipe() {
   const threshold = 50;
   const diff = swipeStartX - swipeEndX;
   if (Math.abs(diff) < threshold) return;
-  
+
   if (diff > 0) {
     window.navigateSlide(1);
   } else {
@@ -711,7 +706,7 @@ const certModal = document.getElementById('cert-modal');
 const certIframe = document.getElementById('cert-iframe');
 const certDownloadBtn = document.getElementById('cert-download-btn');
 
-window.openCert = function(pdfPath) {
+window.openCert = function (pdfPath) {
   if (!certModal || !certIframe) return;
   certIframe.src = pdfPath;
   if (certDownloadBtn) {
@@ -721,7 +716,7 @@ window.openCert = function(pdfPath) {
   document.body.style.overflow = 'hidden';
 };
 
-window.closeCert = function() {
+window.closeCert = function () {
   if (!certModal || !certIframe) return;
   certModal.classList.remove('active');
   certIframe.src = '';
@@ -729,7 +724,7 @@ window.closeCert = function() {
   document.body.style.overflow = '';
 };
 
-window.downloadCert = function(pdfPath, filename) {
+window.downloadCert = function (pdfPath, filename) {
   const link = document.createElement('a');
   link.href = pdfPath;
   link.download = filename || 'certificate.pdf';
@@ -738,18 +733,126 @@ window.downloadCert = function(pdfPath, filename) {
   document.body.removeChild(link);
 };
 
+/* --------------------------------------------------------------------------
+   Project Media Gallery Lightbox (Showcases Screenshots & Video Demos)
+   -------------------------------------------------------------------------- */
+let currentGalleryProject = null;
+let currentGalleryIndex = 0;
+
+window.openProjectGallery = function (projectIndex) {
+  const p = PROJECTS_DATA[projectIndex];
+  if (!p) return;
+  currentGalleryProject = p;
+  currentGalleryIndex = 0;
+
+  const modal = document.getElementById('project-gallery-modal');
+  if (!modal) return;
+
+  const titleEl = document.getElementById('gallery-modal-title');
+  if (titleEl) titleEl.textContent = p.name || 'Project Showcase';
+
+  renderGallerySlide();
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeProjectGallery = function () {
+  const modal = document.getElementById('project-gallery-modal');
+  if (modal) {
+    modal.classList.remove('active');
+    const stage = document.getElementById('gallery-stage');
+    if (stage) {
+      const vid = stage.querySelector('video');
+      if (vid) vid.pause();
+    }
+  }
+  document.body.style.overflow = '';
+};
+
+window.galleryStep = function (delta) {
+  if (!currentGalleryProject || !currentGalleryProject.media || currentGalleryProject.media.length === 0) return;
+  const count = currentGalleryProject.media.length;
+  currentGalleryIndex = (currentGalleryIndex + delta + count) % count;
+  renderGallerySlide();
+};
+
+window.goToGallerySlide = function (idx) {
+  if (!currentGalleryProject || !currentGalleryProject.media) return;
+  currentGalleryIndex = idx;
+  renderGallerySlide();
+};
+
+function renderGallerySlide() {
+  if (!currentGalleryProject) return;
+  const mediaList = currentGalleryProject.media || [];
+  const stage = document.getElementById('gallery-stage');
+  const counter = document.getElementById('gallery-counter');
+  const caption = document.getElementById('gallery-caption');
+  const indicators = document.getElementById('gallery-indicators');
+
+  if (!stage) return;
+
+  if (mediaList.length === 0) {
+    stage.innerHTML = '<div style="color: var(--text-muted); padding: 40px; font-family: var(--font-mono); text-align: center;">Media gallery preview pending public release.</div>';
+    if (counter) counter.textContent = '0 / 0';
+    if (caption) caption.textContent = '';
+    if (indicators) indicators.innerHTML = '';
+    return;
+  }
+
+  const item = mediaList[currentGalleryIndex];
+  if (counter) counter.textContent = `${currentGalleryIndex + 1} / ${mediaList.length}`;
+  if (caption) caption.textContent = item.caption || item.title || `${currentGalleryProject.name} Asset ${currentGalleryIndex + 1}`;
+
+  if (item.type === 'video') {
+    stage.innerHTML = `<video src="${item.src}" controls autoplay playsinline style="max-width: 100%; max-height: 65vh; outline: none;"></video>`;
+  } else if (item.type === 'placeholder') {
+    stage.innerHTML = `
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; text-align: center; gap: 16px;">
+        <i class="fa-solid fa-laptop-code" style="font-size: 3rem; color: var(--accent-cyan);"></i>
+        <h3 style="font-family: var(--font-display); color: var(--text-main); margin: 0;">${item.title || currentGalleryProject.name}</h3>
+        <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); max-width: 450px; line-height: 1.6;">${item.caption}</p>
+        <span class="badge-status" style="margin-top: 8px;"><i class="fa-solid fa-clock"></i> Full Walkthrough & Screenshots Coming Soon</span>
+      </div>
+    `;
+  } else {
+    stage.innerHTML = `<img src="${item.src}" alt="${item.caption || currentGalleryProject.name}" style="max-width: 100%; max-height: 65vh; object-fit: contain;">`;
+  }
+
+  if (indicators) {
+    indicators.innerHTML = mediaList.map((_, idx) => `
+      <span class="gallery-dot ${idx === currentGalleryIndex ? 'active' : ''}" onclick="goToGallerySlide(${idx})"></span>
+    `).join('');
+  }
+}
+
+// Global Keyboard Navigation for Lightbox & Modals
+document.addEventListener('keydown', (e) => {
+  const galleryModal = document.getElementById('project-gallery-modal');
+  if (galleryModal && galleryModal.classList.contains('active')) {
+    if (e.key === 'Escape') closeProjectGallery();
+    if (e.key === 'ArrowLeft') galleryStep(-1);
+    if (e.key === 'ArrowRight') galleryStep(1);
+    return;
+  }
+  const certM = document.getElementById('cert-modal');
+  if (certM && certM.classList.contains('active')) {
+    if (e.key === 'Escape') closeCert();
+  }
+});
+
 /* Mobile Menu Toggle */
 function initMobileMenu() {
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const ribbonPill = document.querySelector('.ribbon-pill');
   const navLinks = document.querySelector('.nav-links');
-  
+
   if (!mobileBtn || !ribbonPill || !navLinks) return;
-  
+
   mobileBtn.addEventListener('click', () => {
     ribbonPill.classList.toggle('expanded');
   });
-  
+
   navLinks.querySelectorAll('.nav-link, .nav-anim-btn').forEach(link => {
     link.addEventListener('click', () => {
       ribbonPill.classList.remove('expanded');
@@ -780,9 +883,9 @@ function initThemeToggle() {
 }
 
 /* Contact Routing Logic */
-window.openContactChoice = function() {
+window.openContactChoice = function () {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-  
+
   if (isMobile) {
     const modal = document.getElementById('contact-modal');
     if (modal) {
@@ -795,7 +898,7 @@ window.openContactChoice = function() {
   }
 };
 
-window.closeContactModal = function() {
+window.closeContactModal = function () {
   const modal = document.getElementById('contact-modal');
   if (modal) {
     modal.classList.remove('active');
@@ -803,18 +906,18 @@ window.closeContactModal = function() {
   }
 };
 
-window.sendContact = function(method) {
+window.sendContact = function (method) {
   const emailTo = 'zyed7094@gmail.com';
   const waNumber = '917019716064';
   const defaultText = 'Hello Zyed, I am reaching out from your portfolio.';
   const encodedText = encodeURIComponent(defaultText);
-  
+
   if (method === 'whatsapp') {
     window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
   } else if (method === 'email') {
     window.location.href = `mailto:${emailTo}?subject=Portfolio%20Inquiry&body=${encodedText}`;
   }
-  
+
   closeContactModal();
 };
 
